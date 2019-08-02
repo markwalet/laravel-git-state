@@ -1,5 +1,5 @@
 {
-  "name": "markwalet/git-state",
+  "name": "markwalet/laravel-git-state",
   "description": "A Laravel package that gives you information about the current git state.",
   "type": "library",
   "license": "MIT",
