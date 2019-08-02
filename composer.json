@@ -1,0 +1,42 @@
+{
+  "name": "markwalet/git-state",
+  "description": "A Laravel package that gives you information about the current git state.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mark Walet",
+      "email": "mark.walet@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.3",
+    "illuminate/contracts": "~5.5",
+    "illuminate/support": "~5.5"
+  },
+  "require-dev": {
+    "php-coveralls/php-coveralls": "^2.1",
+    "phpunit/phpunit": "~6.0||~7.0||~8.0",
+    "orchestra/testbench": "~3.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "MarkWalet\\GitState\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MarkWalet\\GitState\\Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "MarkWalet\\GitState\\GitServiceProvider"
+      ]
+    }
+  }
+}
