@@ -15,7 +15,7 @@ You can install this package with composer:
 composer require markwalet/laravel-git-state
 ```
 
-Laravel 5.5 uses Package auto-discovery, so you don't have to register the service provider. If you want to register the service provider manually, add the following line to your `config/app.php` file:
+Laravel >5.5 uses Package auto-discovery, so you don't have to register the service provider. If you want to register the service provider manually, add the following line to your `config/app.php` file:
 
 ```php
 MarkWalet\GitState\GitServiceProvider::class
@@ -26,6 +26,7 @@ When you want to get information about the current git state, you can inject the
 
 ```php
 <?php
+
 use MarkWalet\GitState\Drivers\GitDriver;
 
 class Controller {
@@ -41,6 +42,7 @@ When injecting a GitDriver like this, you will get an instance of the default dr
 
 ```php
 <?php
+
 use MarkWalet\GitState\GitManager;
 
 class Controller {

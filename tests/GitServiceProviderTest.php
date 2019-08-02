@@ -35,8 +35,8 @@ class GitServiceProviderTest extends LaravelTestCase
     /** @test */
     public function it_codec_resolves_to_default_codec()
     {
-        $this->app['config']['git.default'] = 'test';
-        $this->app['config']['git.drivers.test'] = ['driver' => 'fake'];
+        $this->app['config']['git-state.default'] = 'test';
+        $this->app['config']['git-state.drivers.test'] = ['driver' => 'fake'];
 
         $driver = $this->app->make(GitDriver::class);
 

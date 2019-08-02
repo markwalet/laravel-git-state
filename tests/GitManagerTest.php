@@ -20,7 +20,7 @@ class GitManagerTest extends LaravelTestCase
     /** @test */
     public function it_can_initialize_a_driver()
     {
-        $this->app['config']['git.drivers.file-instance'] = [
+        $this->app['config']['git-state.drivers.file-instance'] = [
             'driver' => 'file',
             'path' => __DIR__.'/test-data/on-master',
         ];
@@ -35,8 +35,8 @@ class GitManagerTest extends LaravelTestCase
     /** @test */
     public function it_uses_the_default_driver_if_no_drier_is_specified()
     {
-        $this->app['config']['git.default'] = 'fake-instance';
-        $this->app['config']['git.drivers.fake-instance'] = [
+        $this->app['config']['git-state.default'] = 'fake-instance';
+        $this->app['config']['git-state.drivers.fake-instance'] = [
             'driver' => 'fake',
         ];
         /** @var GitManager $manager */
@@ -51,6 +51,7 @@ class GitManagerTest extends LaravelTestCase
     /** @test */
     public function it_throws_an_exception_when_no_drivers_are_specified()
     {
+        $this->app['config']['git-state.drivers'] = null;
         /** @var GitManager $manager */
         $manager = $this->app->make(GitManager::class);
 
@@ -62,10 +63,10 @@ class GitManagerTest extends LaravelTestCase
     /** @test */
     public function it_keeps_track_of_all_active_drivers()
     {
-        $this->app['config']['git.drivers.fake-instance'] = [
+        $this->app['config']['git-state.drivers.fake-instance'] = [
             'driver' => 'fake',
         ];
-        $this->app['config']['git.drivers.other-instance'] = [
+        $this->app['config']['git-state.drivers.other-instance'] = [
             'driver' => 'exec',
             'path' => __DIR__.'/test-data/on-nested-feature',
         ];
@@ -86,8 +87,8 @@ class GitManagerTest extends LaravelTestCase
     /** @test */
     public function it_passes_methods_through_to_the_default_driver()
     {
-        $this->app['config']['git.default'] = 'mock';
-        $this->app['config']['git.drivers.mock'] = [];
+        $this->app['config']['git-state.default'] = 'mock';
+        $this->app['config']['git-state.drivers.mock'] = [];
         $driver = $this->createMock(GitDriver::class);
         $driver->expects($this->exactly(1))->method('currentBranch')->willReturn('feature/branch-2');
         $factory = $this->createMock(GitDriverFactory::class);
@@ -105,9 +106,9 @@ class GitManagerTest extends LaravelTestCase
     /** @test */
     public function initializes_the_same_driver_only_once()
     {
-        $this->app['config']['git.default'] = 'mock';
-        $this->app['config']['git.drivers.mock'] = [];
-        $this->app['config']['git.drivers.test'] = [];
+        $this->app['config']['git-state.default'] = 'mock';
+        $this->app['config']['git-state.drivers.mock'] = [];
+        $this->app['config']['git-state.drivers.test'] = [];
         $factory = $this->createMock(GitDriverFactory::class);
         $this->app->bind(GitDriverFactory::class, function() use($factory) {
             return $factory;

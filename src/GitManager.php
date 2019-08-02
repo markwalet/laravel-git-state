@@ -73,7 +73,7 @@ class GitManager
      */
     public function getDefaultDriver(): string
     {
-        return $this->app['config']['git.default'];
+        return $this->app['config']['git-state.default'];
     }
 
     /**
@@ -96,10 +96,10 @@ class GitManager
     protected function configuration(string $name)
     {
         // Get a list of drivers.
-        $drivers = $this->app['config']['git.drivers'];
+        $drivers = $this->app['config']['git-state.drivers'];
 
         if (is_null($drivers)) {
-            throw new MissingConfigurationException('git.drivers');
+            throw new MissingConfigurationException('git-state.drivers');
         }
 
         // Throw exception when configuration is not found.
