@@ -10,10 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class ExecGitDriverTest extends TestCase
 {
-    /**
-     * @test
-     * @group Integration
-     */
+    /** @test */
     public function it_can_get_the_latest_branch_of_a_git_repository()
     {
         $git = new ExecGitDriver(['path' => __DIR__.'/../test-data/on-master']);
@@ -23,10 +20,7 @@ class ExecGitDriverTest extends TestCase
         $this->assertEquals('master', $branch);
     }
 
-    /**
-     * @test
-     * @group Integration
-     */
+    /** @test */
     public function it_does_not_escape_forward_slashes_in_the_branch_name()
     {
         $git = new ExecGitDriver(['path' => __DIR__.'/../test-data/on-nested-feature']);
