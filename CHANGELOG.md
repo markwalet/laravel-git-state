@@ -4,3 +4,6 @@
 
 ### Added
 - Added a readme
+
+### Fixed
+- Added integration tests in CI.
