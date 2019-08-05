@@ -2,11 +2,17 @@
 
 namespace MarkWalet\GitState;
 
+use Illuminate\Contracts\Foundation\Application;
 use MarkWalet\GitState\Drivers\GitDriver;
 use MarkWalet\GitState\Exceptions\MissingConfigurationException;
 
-use Illuminate\Contracts\Foundation\Application;
-
+/**
+ * Class GitManager
+ *
+ * @package MarkWalet\GitState
+ * @method string currentBranch
+ * @see GitDriver
+ */
 class GitManager
 {
     /**
