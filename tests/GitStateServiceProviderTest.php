@@ -12,17 +12,17 @@ use MarkWalet\GitState\Exceptions\NoGitRepositoryException;
 use MarkWalet\GitState\Exceptions\RuntimeException;
 use MarkWalet\GitState\Facades\GitState;
 use MarkWalet\GitState\GitDriverFactory;
-use MarkWalet\GitState\GitManager;
+use MarkWalet\GitState\GitStateManager;
 use PHPUnit\Framework\TestCase;
 
-class GitServiceProviderTest extends LaravelTestCase
+class GitStateServiceProviderTest extends LaravelTestCase
 {
     /** @test */
     public function it_binds_a_git_manager_to_the_application()
     {
         $bindings = $this->app->getBindings();
 
-        $this->assertArrayHasKey(GitManager::class, $bindings);
+        $this->assertArrayHasKey(GitStateManager::class, $bindings);
     }
 
     /** @test */

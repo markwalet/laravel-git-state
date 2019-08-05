@@ -9,7 +9,7 @@ use MarkWalet\GitState\Exceptions\MissingConfigurationException;
 /**
  * @mixin GitDriver
  */
-class GitManager
+class GitStateManager
 {
     /**
      * The application instance.

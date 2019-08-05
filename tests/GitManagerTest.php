@@ -7,7 +7,7 @@ use MarkWalet\GitState\Drivers\FileGitDriver;
 use MarkWalet\GitState\Drivers\GitDriver;
 use MarkWalet\GitState\Exceptions\MissingConfigurationException;
 use MarkWalet\GitState\GitDriverFactory;
-use MarkWalet\GitState\GitManager;
+use MarkWalet\GitState\GitStateManager;
 
 class GitManagerTest extends LaravelTestCase
 {
@@ -18,8 +18,8 @@ class GitManagerTest extends LaravelTestCase
             'driver' => 'file',
             'path' => __DIR__ . '/test-data/on-master',
         ];
-        /** @var GitManager $manager */
-        $manager = $this->app->make(GitManager::class);
+        /** @var GitStateManager $manager */
+        $manager = $this->app->make(GitStateManager::class);
 
         $driver = $manager->driver('file-instance');
 
@@ -33,8 +33,8 @@ class GitManagerTest extends LaravelTestCase
         $this->app['config']['git-state.drivers.fake-instance'] = [
             'driver' => 'fake',
         ];
-        /** @var GitManager $manager */
-        $manager = $this->app->make(GitManager::class);
+        /** @var GitStateManager $manager */
+        $manager = $this->app->make(GitStateManager::class);
 
         $driver = $manager->driver();
 
@@ -45,8 +45,8 @@ class GitManagerTest extends LaravelTestCase
     public function it_throws_an_exception_when_no_drivers_are_specified()
     {
         $this->app['config']['git-state.drivers'] = null;
-        /** @var GitManager $manager */
-        $manager = $this->app->make(GitManager::class);
+        /** @var GitStateManager $manager */
+        $manager = $this->app->make(GitStateManager::class);
 
         $this->expectException(MissingConfigurationException::class);
 
@@ -57,8 +57,8 @@ class GitManagerTest extends LaravelTestCase
     public function it_throws_an_exception_when_the_configuration_for_the_given_driver_is_not_found()
     {
         $this->app['config']['git-state.drivers'] = [];
-        /** @var GitManager $manager */
-        $manager = $this->app->make(GitManager::class);
+        /** @var GitStateManager $manager */
+        $manager = $this->app->make(GitStateManager::class);
 
         $this->expectException(MissingConfigurationException::class);
 
@@ -76,8 +76,8 @@ class GitManagerTest extends LaravelTestCase
             'path' => __DIR__ . '/test-data/on-nested-feature',
         ];
 
-        /** @var GitManager $manager */
-        $manager = $this->app->make(GitManager::class);
+        /** @var GitStateManager $manager */
+        $manager = $this->app->make(GitStateManager::class);
 
         $before = $manager->getActiveDrivers();
 
@@ -102,8 +102,8 @@ class GitManagerTest extends LaravelTestCase
         $this->app->bind(GitDriverFactory::class, function () use ($factory) {
             return $factory;
         });
-        /** @var GitManager $manager */
-        $manager = $this->app->make(GitManager::class);
+        /** @var GitStateManager $manager */
+        $manager = $this->app->make(GitStateManager::class);
 
         $branch = $manager->currentBranch();
 
@@ -121,8 +121,8 @@ class GitManagerTest extends LaravelTestCase
             return $factory;
         });
         $factory->expects($this->exactly(2))->method('make');
-        /** @var GitManager $manager */
-        $manager = $this->app->make(GitManager::class);
+        /** @var GitStateManager $manager */
+        $manager = $this->app->make(GitStateManager::class);
 
         $manager->driver('mock');
         $manager->driver('mock');

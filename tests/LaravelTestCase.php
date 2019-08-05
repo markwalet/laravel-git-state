@@ -3,7 +3,7 @@
 namespace MarkWalet\GitState\Tests;
 
 use Illuminate\Foundation\Application;
-use MarkWalet\GitState\GitServiceProvider;
+use MarkWalet\GitState\GitStateServiceProvider;
 use Orchestra\Testbench\TestCase;
 
 class LaravelTestCase extends TestCase
@@ -18,7 +18,7 @@ class LaravelTestCase extends TestCase
     protected function getPackageProviders($app)
     {
         return [
-            GitServiceProvider::class,
+            GitStateServiceProvider::class,
         ];
     }
 }

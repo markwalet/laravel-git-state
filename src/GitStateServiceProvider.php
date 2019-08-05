@@ -6,7 +6,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 use MarkWalet\GitState\Drivers\GitDriver;
 
-class GitServiceProvider extends ServiceProvider
+class GitStateServiceProvider extends ServiceProvider
 {
 
     /**
@@ -30,14 +30,14 @@ class GitServiceProvider extends ServiceProvider
         $this->app->bind(GitDriverFactory::class, GitDriverFactory::class);
 
         // Bind manager to application.
-        $this->app->bind(GitManager::class, function (Application $app) {
-            return new GitManager($app, $app->make(GitDriverFactory::class));
+        $this->app->bind(GitStateManager::class, function (Application $app) {
+            return new GitStateManager($app, $app->make(GitDriverFactory::class));
         });
 
         // Bind default driver to application.
         $this->app->singleton(GitDriver::class, function (Application $app) {
-            /** @var GitManager $manager */
-            $manager = $app->make(GitManager::class);
+            /** @var GitStateManager $manager */
+            $manager = $app->make(GitStateManager::class);
 
             return $manager->driver();
         });
