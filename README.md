@@ -18,7 +18,7 @@ composer require markwalet/laravel-git-state
 Laravel >=5.5 uses Package auto-discovery, so you don't have to register the service provider. If you want to register the service provider manually, add the following line to your `config/app.php` file:
 
 ```php
-MarkWalet\GitState\GitServiceProvider::class
+MarkWalet\GitState\GitStateServiceProvider::class
 ```
 
 ## Usage
@@ -43,11 +43,11 @@ When injecting a GitDriver like this, you will get an instance of the default dr
 ```php
 <?php
 
-use MarkWalet\GitState\GitManager;
+use MarkWalet\GitState\GitStateManager;
 
 class Controller {
     
-    public function index(GitManager $driver) {
+    public function index(GitStateManager $driver) {
         $branch = $driver->driver('other-driver')->currentBranch();
         
         return view('index', compact('branch'));
