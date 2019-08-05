@@ -1,6 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.0.2...master)
+## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.0.3...master)
+
+## [1.0.3](https://github.com/markwalet/laravel-git-state/compare/v1.0.2...v1.0.3)
 
 ### Added
 - Added DocBlock for git manager.
