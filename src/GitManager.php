@@ -104,7 +104,7 @@ class GitManager
 
         // Throw exception when configuration is not found.
         if (array_key_exists($name, $drivers) === false) {
-            throw new MissingConfigurationException($name);
+            throw new MissingConfigurationException("git-state.drivers.{$name}");
         }
 
         // Return driver configuration.
