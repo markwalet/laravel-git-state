@@ -10,6 +10,7 @@ use MarkWalet\GitState\Exceptions\InvalidArgumentException;
 use MarkWalet\GitState\Exceptions\MissingDriverException;
 use MarkWalet\GitState\Exceptions\NoGitRepositoryException;
 use MarkWalet\GitState\Exceptions\RuntimeException;
+use MarkWalet\GitState\Facades\GitState;
 use MarkWalet\GitState\GitDriverFactory;
 use MarkWalet\GitState\GitManager;
 use PHPUnit\Framework\TestCase;
@@ -41,5 +42,15 @@ class GitServiceProviderTest extends LaravelTestCase
         $driver = $this->app->make(GitDriver::class);
 
         $this->assertInstanceOf(FakeGitDriver::class, $driver);
+    }
+
+    /** @test */
+    public function it_registers_a_facade()
+    {
+        $this->app['config']['git-state.default'] = 'test';
+        $this->app['config']['git-state.drivers.test'] = ['driver' => 'fake'];
+        $branch = GitState::currentBranch();
+
+        $this->assertEquals('master', $branch);
     }
 }

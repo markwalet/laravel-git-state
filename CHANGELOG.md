@@ -3,7 +3,8 @@
 ## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.0.2...master)
 
 ### Added
-- Added DocBlock for git manager
+- Added DocBlock for git manager.
+- Added a facade.
 
 ## [1.0.2](https://github.com/markwalet/laravel-git-state/compare/v1.0.1...v1.0.2)
 

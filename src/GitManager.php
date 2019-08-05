@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpHierarchyChecksInspection */
 
 namespace MarkWalet\GitState;
 
@@ -7,11 +7,7 @@ use MarkWalet\GitState\Drivers\GitDriver;
 use MarkWalet\GitState\Exceptions\MissingConfigurationException;
 
 /**
- * Class GitManager
- *
- * @package MarkWalet\GitState
- * @method string currentBranch
- * @see GitDriver
+ * @mixin GitDriver
  */
 class GitManager
 {

@@ -35,7 +35,7 @@ class GitServiceProvider extends ServiceProvider
         });
 
         // Bind default driver to application.
-        $this->app->bind(GitDriver::class, function (Application $app) {
+        $this->app->singleton(GitDriver::class, function (Application $app) {
             /** @var GitManager $manager */
             $manager = $app->make(GitManager::class);
 
