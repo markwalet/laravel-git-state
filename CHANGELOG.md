@@ -1,6 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.0.3...master)
+## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.0.4...master)
+
+## [1.0.4](https://github.com/markwalet/laravel-git-state/compare/v1.0.3...1.0.4)
 
 ### Changed
 - Renamed `Git` to `GitState`.
