@@ -2,6 +2,11 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.0.5...master)
 
+## [1.0.6](https://github.com/markwalet/laravel-git-state/compare/v1.0.5...v1.0.6)
+
+### Fixed
+- Fixed merge key for configuration file.
+
 ## [1.0.5](https://github.com/markwalet/laravel-git-state/compare/v1.0.4...v1.0.5)
 
 ### Fixed
