@@ -35,7 +35,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "MarkWalet\\GitState\\GitServiceProvider"
+        "MarkWalet\\GitState\\GitStateServiceProvider"
       ],
       "aliases": {
         "GitState": "MarkWalet\\GitState\\Facades\\GitState"
