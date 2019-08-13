@@ -16,7 +16,7 @@ class GitStateServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/git-state.php', 'git');
+        $this->mergeConfigFrom(__DIR__ . '/../config/git-state.php', 'git-state');
 
         $this->registerGitServices();
     }
