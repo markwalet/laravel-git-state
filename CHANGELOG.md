@@ -1,29 +1,29 @@
 # Changelog
 
-## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.0.5...master)
+## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.0.6...master)
 
-## [1.0.6](https://github.com/markwalet/laravel-git-state/compare/v1.0.5...v1.0.6)
+## [v1.0.6](https://github.com/markwalet/laravel-git-state/compare/v1.0.5...v1.0.6)
 
 ### Fixed
 - Fixed merge key for configuration file.
 
-## [1.0.5](https://github.com/markwalet/laravel-git-state/compare/v1.0.4...v1.0.5)
+## [v1.0.5](https://github.com/markwalet/laravel-git-state/compare/v1.0.4...v1.0.5)
 
 ### Fixed
 - Fixed Composer auto-loading of service provider.
 
-## [1.0.4](https://github.com/markwalet/laravel-git-state/compare/v1.0.3...v1.0.4)
+## [v1.0.4](https://github.com/markwalet/laravel-git-state/compare/v1.0.3...v1.0.4)
 
 ### Changed
 - Renamed `Git` to `GitState`.
 
-## [1.0.3](https://github.com/markwalet/laravel-git-state/compare/v1.0.2...v1.0.3)
+## [v1.0.3](https://github.com/markwalet/laravel-git-state/compare/v1.0.2...v1.0.3)
 
 ### Added
 - Added DocBlock for git manager.
 - Added a facade.
 
-## [1.0.2](https://github.com/markwalet/laravel-git-state/compare/v1.0.1...v1.0.2)
+## [v1.0.2](https://github.com/markwalet/laravel-git-state/compare/v1.0.1...v1.0.2)
 
 ### Fixed
 - Fix failing tests.
@@ -32,7 +32,7 @@
 ### Removed
 - Removed redundant clover call in CI.
 
-## [1.0.1](https://github.com/markwalet/laravel-git-state/compare/v1.0.0...v1.0.1)
+## [v1.0.1](https://github.com/markwalet/laravel-git-state/compare/v1.0.0...v1.0.1)
 
 ### Added
 - Added a readme
