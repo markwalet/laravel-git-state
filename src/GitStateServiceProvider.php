@@ -8,7 +8,6 @@ use MarkWalet\GitState\Drivers\GitDriver;
 
 class GitStateServiceProvider extends ServiceProvider
 {
-
     /**
      * Register any application services.
      *
