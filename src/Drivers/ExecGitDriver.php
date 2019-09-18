@@ -44,7 +44,7 @@ class ExecGitDriver implements GitDriver
         exec($command, $result, $code);
 
         if ($code !== 0 || count($result) !== 1) {
-            throw new RuntimeException("Error while fetching the branch name");
+            throw new RuntimeException('Error while fetching the branch name');
         }
 
         return $result[0];
@@ -75,7 +75,7 @@ class ExecGitDriver implements GitDriver
      */
     private function parseOptions(array $options = [])
     {
-        return collect($options)->map(function($value, $key) {
+        return collect($options)->map(function ($value, $key) {
             if (is_int($key)) {
                 return $value;
             }

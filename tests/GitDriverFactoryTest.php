@@ -7,8 +7,6 @@ use MarkWalet\GitState\Drivers\FakeGitDriver;
 use MarkWalet\GitState\Drivers\FileGitDriver;
 use MarkWalet\GitState\Exceptions\InvalidArgumentException;
 use MarkWalet\GitState\Exceptions\MissingDriverException;
-use MarkWalet\GitState\Exceptions\NoGitRepositoryException;
-use MarkWalet\GitState\Exceptions\RuntimeException;
 use MarkWalet\GitState\GitDriverFactory;
 use PHPUnit\Framework\TestCase;
 
@@ -20,7 +18,7 @@ class GitDriverFactoryTest extends TestCase
         $factory = new GitDriverFactory;
 
         $driver = $factory->make([
-            'driver' => 'fake'
+            'driver' => 'fake',
         ]);
 
         $this->assertInstanceOf(FakeGitDriver::class, $driver);
@@ -72,7 +70,6 @@ class GitDriverFactoryTest extends TestCase
         $factory->make([
             'driver' => 'non-existing',
         ]);
-
     }
 
     /**

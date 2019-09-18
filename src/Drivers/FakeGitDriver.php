@@ -6,7 +6,6 @@ use Illuminate\Support\Arr;
 
 class FakeGitDriver implements GitDriver
 {
-
     /**
      * @var string
      */

@@ -3,9 +3,6 @@
 namespace MarkWalet\GitState\Tests\Drivers;
 
 use MarkWalet\GitState\Drivers\FakeGitDriver;
-use MarkWalet\GitState\Exceptions\InvalidArgumentException;
-use MarkWalet\GitState\Exceptions\NoGitRepositoryException;
-use MarkWalet\GitState\Exceptions\RuntimeException;
 use PHPUnit\Framework\TestCase;
 
 class FakeGitDriverTest extends TestCase

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Facade;
 use MarkWalet\GitState\Drivers\GitDriver;
 
 /**
- * Class GitState
+ * Class GitState.
  *
  * @method static string currentBranch()
  * @see GitDriver

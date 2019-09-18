@@ -2,18 +2,10 @@
 
 namespace MarkWalet\GitState\Tests;
 
-use MarkWalet\GitState\Drivers\ExecGitDriver;
 use MarkWalet\GitState\Drivers\FakeGitDriver;
-use MarkWalet\GitState\Drivers\FileGitDriver;
 use MarkWalet\GitState\Drivers\GitDriver;
-use MarkWalet\GitState\Exceptions\InvalidArgumentException;
-use MarkWalet\GitState\Exceptions\MissingDriverException;
-use MarkWalet\GitState\Exceptions\NoGitRepositoryException;
-use MarkWalet\GitState\Exceptions\RuntimeException;
 use MarkWalet\GitState\Facades\GitState;
-use MarkWalet\GitState\GitDriverFactory;
 use MarkWalet\GitState\GitStateManager;
-use PHPUnit\Framework\TestCase;
 
 class GitStateServiceProviderTest extends LaravelTestCase
 {

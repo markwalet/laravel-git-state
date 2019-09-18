@@ -37,6 +37,6 @@ return [
         'file' => [
             'driver' => 'file',
             'path' => base_path('.git'),
-        ]
-    ]
+        ],
+    ],
 ];
