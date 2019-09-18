@@ -2,6 +2,12 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.0.6...master)
 
+### Added
+- Added Codecov integration.
+
+### Removed
+- Removed Coveralls integration.
+
 ## [v1.0.6 (2019-08-13)](https://github.com/markwalet/laravel-git-state/compare/v1.0.5...v1.0.6)
 
 ### Fixed

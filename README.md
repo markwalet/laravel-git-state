@@ -1,7 +1,7 @@
 # Laravel Git State
 
 [![Build Status](https://travis-ci.org/markwalet/laravel-git-state.svg?branch=master)](https://travis-ci.org/markwalet/laravel-git-state)
-[![Coverage Status](https://coveralls.io/repos/github/markwalet/laravel-git-state/badge.svg?branch=master)](https://coveralls.io/github/markwalet/laravel-git-state?branch=master)
+[![Coverage](https://codecov.io/gh/markwalet/laravel-git-state/branch/master/graph/badge.svg)](https://codecov.io/gh/markwalet/laravel-git-state)
 [![Total Downloads](https://poser.pugx.org/markwalet/laravel-git-state/downloads)](https://packagist.org/packages/markwalet/laravel-git-state)
 [![Latest Stable Version](https://poser.pugx.org/markwalet/laravel-git-state/v/stable)](https://packagist.org/packages/markwalet/laravel-git-state)
 [![License](https://poser.pugx.org/markwalet/laravel-git-state/license)](https://packagist.org/packages/markwalet/laravel-git-state)
