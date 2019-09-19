@@ -9,14 +9,14 @@ use MarkWalet\GitState\Exceptions\MissingConfigurationException;
 use MarkWalet\GitState\GitDriverFactory;
 use MarkWalet\GitState\GitStateManager;
 
-class GitManagerTest extends LaravelTestCase
+class GitStateManagerTest extends LaravelTestCase
 {
     /** @test */
     public function it_can_initialize_a_driver()
     {
         $this->app['config']['git-state.drivers.file-instance'] = [
             'driver' => 'file',
-            'path' => __DIR__ . '/test-data/on-master',
+            'path' => __DIR__.'/test-data/on-master',
         ];
         /** @var GitStateManager $manager */
         $manager = $this->app->make(GitStateManager::class);
@@ -73,7 +73,7 @@ class GitManagerTest extends LaravelTestCase
         ];
         $this->app['config']['git-state.drivers.other-instance'] = [
             'driver' => 'exec',
-            'path' => __DIR__ . '/test-data/on-nested-feature',
+            'path' => __DIR__.'/test-data/on-nested-feature',
         ];
 
         /** @var GitStateManager $manager */

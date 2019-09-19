@@ -8,7 +8,6 @@ use MarkWalet\GitState\Drivers\GitDriver;
 
 class GitStateServiceProvider extends ServiceProvider
 {
-
     /**
      * Register any application services.
      *
@@ -16,7 +15,7 @@ class GitStateServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/git-state.php', 'git-state');
+        $this->mergeConfigFrom(__DIR__.'/../config/git-state.php', 'git-state');
 
         $this->registerGitServices();
     }
@@ -51,7 +50,7 @@ class GitStateServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/git-state.php' => $this->app->configPath('git-state.php'),
+            __DIR__.'/../config/git-state.php' => $this->app->configPath('git-state.php'),
         ]);
     }
 }

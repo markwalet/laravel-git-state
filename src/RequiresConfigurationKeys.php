@@ -18,7 +18,7 @@ trait RequiresConfigurationKeys
     {
         $required = Arr::wrap($required);
 
-        foreach($required as $r) {
+        foreach ($required as $r) {
             if (isset($config[$r]) === false) {
                 throw new InvalidArgumentException("Missing `{$r}`-key in configuration");
             }
