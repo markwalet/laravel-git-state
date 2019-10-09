@@ -4,6 +4,7 @@
 
 ### Added
 - Added Codecov integration.
+- Added support for Laravel 6.
 
 ### Removed
 - Removed Coveralls integration.
