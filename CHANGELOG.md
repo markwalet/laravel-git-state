@@ -2,7 +2,7 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.1.0...master)
 
-## [v1.1.0 (2019-10-09)](https://github.com/markwalet/laravel-git-state/compare/v1.0.6...v1.1.0)
+## [v1.1.0 (2019-10-10)](https://github.com/markwalet/laravel-git-state/compare/v1.0.6...v1.1.0)
 
 ### Added
 - Added Codecov integration.
