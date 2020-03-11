@@ -2,11 +2,14 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.1.0...master)
 
+### Added
+- Add support for Laravel 7. ([#9](https://github.com/markwalet/laravel-git-state/issues/9))
+
 ## [v1.1.0 (2019-10-10)](https://github.com/markwalet/laravel-git-state/compare/v1.0.6...v1.1.0)
 
 ### Added
 - Added Codecov integration.
-- Added support for Laravel 6.
+- Added support for Laravel 6. ([#8](https://github.com/markwalet/laravel-git-state/issues/8))
 
 ### Removed
 - Removed Coveralls integration.
