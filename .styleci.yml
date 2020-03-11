@@ -1,5 +1,3 @@
 preset: laravel
-enabled:
-  - alpha_ordered_imports
 disabled:
   - simplified_null_return
