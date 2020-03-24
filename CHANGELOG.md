@@ -1,6 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.1.0...master)
+## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.3.0...master)
+
+## [v1.3.0 (2020-03-24)](https://github.com/markwalet/laravel-git-state/compare/v1.2.0...v1.3.0)
 
 ### Added
 - Added Github Actions integration.
