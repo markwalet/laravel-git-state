@@ -2,6 +2,15 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.1.0...master)
 
+### Added
+- Added Github Actions integration.
+- Added PHP 7.4 support.
+ 
+### Removed
+- Removed support for Laravel 5.
+- Removed support for PHP 7.1
+- Removed Travis integration.
+
 ## [v1.2.0 (2020-03-12)](https://github.com/markwalet/laravel-git-state/compare/v1.1.0...v1.2.0)
 
 ### Added
