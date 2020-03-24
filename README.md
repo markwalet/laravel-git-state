@@ -1,11 +1,11 @@
 # Laravel Git State
 
+[![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Latest Stable Version](https://poser.pugx.org/markwalet/laravel-git-state/v/stable)](https://packagist.org/packages/markwalet/laravel-git-state)
 [![Build Status](https://travis-ci.com/markwalet/laravel-git-state.svg?branch=master)](https://travis-ci.com/markwalet/laravel-git-state)
 [![Coverage](https://codecov.io/gh/markwalet/laravel-git-state/branch/master/graph/badge.svg)](https://codecov.io/gh/markwalet/laravel-git-state)
 [![StyleCI](https://github.styleci.io/repos/200247837/shield?branch=master)](https://github.styleci.io/repos/200247837)
 [![Total Downloads](https://poser.pugx.org/markwalet/laravel-git-state/downloads)](https://packagist.org/packages/markwalet/laravel-git-state)
-[![Latest Stable Version](https://poser.pugx.org/markwalet/laravel-git-state/v/stable)](https://packagist.org/packages/markwalet/laravel-git-state)
-[![License](https://poser.pugx.org/markwalet/laravel-git-state/license)](https://packagist.org/packages/markwalet/laravel-git-state)
 
 A Laravel package that gives you information about the current git state.
 
@@ -23,7 +23,7 @@ MarkWalet\GitState\GitStateServiceProvider::class
 ```
 
 ## Usage
-When you want to get information about the current git state, you can inject the `\MarkWalet\GitState\Drivers\GitDriver` class in your methods:
+When you want to get information about the current git state, you can inject the `MarkWalet\GitState\Drivers\GitDriver` class in your methods:
 
 ```php
 <?php
