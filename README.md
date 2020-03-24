@@ -16,7 +16,7 @@ You can install this package with composer:
 composer require markwalet/laravel-git-state
 ```
 
-Laravel >=5.5 uses Package auto-discovery, so you don't have to register the service provider. If you want to register the service provider manually, add the following line to your `config/app.php` file:
+Laravel auto-loads service providers for you, so you don't have to register it. If you want to register the service provider manually, add the following line to your `config/app.php` file:
 
 ```php
 MarkWalet\GitState\GitStateServiceProvider::class
