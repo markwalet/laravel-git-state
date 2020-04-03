@@ -16,7 +16,7 @@ class GitStateManagerTest extends LaravelTestCase
     {
         $this->app['config']['git-state.drivers.file-instance'] = [
             'driver' => 'file',
-            'path' => __DIR__.'/test-data/on-master',
+            'path' => __DIR__ . '/test-data/on-master',
         ];
         /** @var GitStateManager $manager */
         $manager = $this->app->make(GitStateManager::class);
@@ -27,7 +27,7 @@ class GitStateManagerTest extends LaravelTestCase
     }
 
     /** @test */
-    public function it_uses_the_default_driver_if_no_drier_is_specified()
+    public function it_uses_the_default_driver_if_no_driver_is_specified()
     {
         $this->app['config']['git-state.default'] = 'fake-instance';
         $this->app['config']['git-state.drivers.fake-instance'] = [
@@ -73,7 +73,7 @@ class GitStateManagerTest extends LaravelTestCase
         ];
         $this->app['config']['git-state.drivers.other-instance'] = [
             'driver' => 'exec',
-            'path' => __DIR__.'/test-data/on-nested-feature',
+            'path' => __DIR__ . '/test-data/on-nested-feature',
         ];
 
         /** @var GitStateManager $manager */

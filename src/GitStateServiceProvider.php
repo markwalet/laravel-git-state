@@ -30,7 +30,9 @@ class GitStateServiceProvider extends ServiceProvider
 
         // Bind manager to application.
         $this->app->bind(GitStateManager::class, function (Application $app) {
-            return new GitStateManager($app, $app->make(GitDriverFactory::class));
+            $config = $app['config']['git-state'];
+    
+            return new GitStateManager($app->make(GitDriverFactory::class), $config);
         });
 
         // Bind default driver to application.
