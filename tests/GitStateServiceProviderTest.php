@@ -5,6 +5,7 @@ namespace MarkWalet\GitState\Tests;
 use MarkWalet\GitState\Drivers\FakeGitDriver;
 use MarkWalet\GitState\Drivers\GitDriver;
 use MarkWalet\GitState\Facades\GitState;
+use MarkWalet\GitState\GitDriverFactory;
 use MarkWalet\GitState\GitStateManager;
 
 class GitStateServiceProviderTest extends LaravelTestCase
@@ -18,7 +19,7 @@ class GitStateServiceProviderTest extends LaravelTestCase
     }
 
     /** @test */
-    public function it_binds_codec_to_the_application()
+    public function it_binds_a_driver_to_the_application()
     {
         $bindings = $this->app->getBindings();
 
@@ -26,7 +27,7 @@ class GitStateServiceProviderTest extends LaravelTestCase
     }
 
     /** @test */
-    public function it_codec_resolves_to_default_codec()
+    public function it_binds_the_correct_driver_to_the_application_based_on_the_configuration()
     {
         $this->app['config']['git-state.default'] = 'test';
         $this->app['config']['git-state.drivers.test'] = ['driver' => 'fake'];
@@ -39,10 +40,18 @@ class GitStateServiceProviderTest extends LaravelTestCase
     /** @test */
     public function it_registers_a_facade()
     {
-        $this->app['config']['git-state.default'] = 'test';
-        $this->app['config']['git-state.drivers.test'] = ['driver' => 'fake'];
+        /** @var GitStateManager $manager */
+        $this->app->bind(GitDriverFactory::class, function () {
+            $driver = $this->mock(GitDriver::class);
+            $driver->expects('currentBranch')->once()->andReturn('test-branch');
+            
+            $factory = $this->mock(GitDriverFactory::class);
+            $factory->expects('make')->once()->andReturn($driver);
+            
+            return $factory;
+        });
         $branch = GitState::currentBranch();
 
-        $this->assertEquals('master', $branch);
+        $this->assertEquals('test-branch', $branch);
     }
 }
