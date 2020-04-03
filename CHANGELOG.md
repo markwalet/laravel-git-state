@@ -2,6 +2,9 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.3.0...master)
 
+### Removed
+- Removed Laravel integration in `GitStateManager` tests. ([#12](https://github.com/markwalet/laravel-git-state/issues/12))
+
 ## [v1.3.0 (2020-03-24)](https://github.com/markwalet/laravel-git-state/compare/v1.2.0...v1.3.0)
 
 ### Added
