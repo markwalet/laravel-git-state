@@ -18,9 +18,9 @@ class GitStateManagerTest extends TestCase
             'drivers' => [
                 'file-instance' => [
                     'driver' => 'file',
-                    'path' => __DIR__ . '/test-data/on-master',
-                ]
-            ]
+                    'path' => __DIR__.'/test-data/on-master',
+                ],
+            ],
         ]);
 
         $driver = $manager->driver('file-instance');
@@ -36,8 +36,8 @@ class GitStateManagerTest extends TestCase
             'drivers' => [
                 'fake-instance' => [
                     'driver' => 'fake',
-                ]
-            ]
+                ],
+            ],
         ]);
 
         $driver = $manager->driver();
@@ -80,7 +80,7 @@ class GitStateManagerTest extends TestCase
                 ],
                 'other-instance' => [
                     'driver' => 'exec',
-                    'path' => __DIR__ . '/test-data/on-nested-feature',
+                    'path' => __DIR__.'/test-data/on-nested-feature',
                 ],
             ],
         ]);

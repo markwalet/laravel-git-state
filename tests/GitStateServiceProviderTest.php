@@ -44,10 +44,10 @@ class GitStateServiceProviderTest extends LaravelTestCase
         $this->app->bind(GitDriverFactory::class, function () {
             $driver = $this->mock(GitDriver::class);
             $driver->expects('currentBranch')->once()->andReturn('test-branch');
-            
+
             $factory = $this->mock(GitDriverFactory::class);
             $factory->expects('make')->once()->andReturn($driver);
-            
+
             return $factory;
         });
         $branch = GitState::currentBranch();
