@@ -13,7 +13,7 @@ class FileGitDriverTest extends TestCase
     use DriverTests;
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     protected function driver(string $folder): GitDriver
     {

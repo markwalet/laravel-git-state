@@ -13,7 +13,7 @@ trait DriverTests
      * @param string $folder
      * @return GitDriver
      */
-    protected abstract function driver(string $folder): GitDriver;
+    abstract protected function driver(string $folder): GitDriver;
 
     /** @test */
     public function it_can_get_the_latest_branch_of_a_git_repository()

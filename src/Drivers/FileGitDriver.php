@@ -5,8 +5,6 @@ namespace MarkWalet\GitState\Drivers;
 use MarkWalet\GitState\Exceptions\NoGitRepositoryException;
 use MarkWalet\GitState\Exceptions\RuntimeException;
 use MarkWalet\GitState\RequiresConfigurationKeys;
-use function mb_substr;
-use const DIRECTORY_SEPARATOR;
 
 class FileGitDriver implements GitDriver
 {
