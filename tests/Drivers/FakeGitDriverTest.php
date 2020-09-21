@@ -7,6 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class FakeGitDriverTest extends TestCase
 {
+
     /** @test */
     public function it_can_set_the_current_branch_from_configuration()
     {

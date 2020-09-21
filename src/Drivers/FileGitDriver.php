@@ -2,9 +2,11 @@
 
 namespace MarkWalet\GitState\Drivers;
 
-use MarkWalet\GitState\Exceptions\FileNotFoundException;
 use MarkWalet\GitState\Exceptions\NoGitRepositoryException;
+use MarkWalet\GitState\Exceptions\RuntimeException;
 use MarkWalet\GitState\RequiresConfigurationKeys;
+use function mb_substr;
+use const DIRECTORY_SEPARATOR;
 
 class FileGitDriver implements GitDriver
 {
@@ -45,6 +47,27 @@ class FileGitDriver implements GitDriver
     }
 
     /**
+     * Get the latest commit hash.
+     *
+     * @param bool $short
+     * @return string
+     */
+    public function latestCommitHash(bool $short = false): string
+    {
+        $path = $this->path('refs'.DIRECTORY_SEPARATOR.'heads'.DIRECTORY_SEPARATOR.$this->currentBranch());
+
+        if (file_exists($path) === false) {
+            throw new RuntimeException($path);
+        }
+
+        $hash = file_get_contents($path);
+
+        return ($short)
+            ? mb_substr($hash, 0, 7)
+            : trim($hash);
+    }
+
+    /**
      * Get the contents of the HEAD file.
      *
      * @return string
@@ -54,7 +77,7 @@ class FileGitDriver implements GitDriver
         $path = $this->path('HEAD');
 
         if (file_exists($path) === false) {
-            throw new FileNotFoundException($path);
+            throw new RuntimeException($path);
         }
 
         return trim(file_get_contents($path));

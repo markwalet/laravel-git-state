@@ -3,31 +3,21 @@
 namespace MarkWalet\GitState\Tests\Drivers;
 
 use MarkWalet\GitState\Drivers\ExecGitDriver;
+use MarkWalet\GitState\Drivers\GitDriver;
 use MarkWalet\GitState\Exceptions\InvalidArgumentException;
 use MarkWalet\GitState\Exceptions\NoGitRepositoryException;
-use MarkWalet\GitState\Exceptions\RuntimeException;
 use PHPUnit\Framework\TestCase;
 
 class ExecGitDriverTest extends TestCase
 {
-    /** @test */
-    public function it_can_get_the_latest_branch_of_a_git_repository()
+    use DriverTests;
+
+    /**
+     * @inheritDoc
+     */
+    protected function driver(string $folder): GitDriver
     {
-        $git = new ExecGitDriver(['path' => __DIR__.'/../test-data/on-master']);
-
-        $branch = $git->currentBranch();
-
-        $this->assertEquals('master', $branch);
-    }
-
-    /** @test */
-    public function it_does_not_escape_forward_slashes_in_the_branch_name()
-    {
-        $git = new ExecGitDriver(['path' => __DIR__.'/../test-data/on-nested-feature']);
-
-        $branch = $git->currentBranch();
-
-        $this->assertEquals('feature/issue-12', $branch);
+        return new ExecGitDriver(['path' => __DIR__.'/../test-data/'.$folder]);
     }
 
     /** @test */
@@ -44,15 +34,5 @@ class ExecGitDriverTest extends TestCase
         $this->expectException(NoGitRepositoryException::class);
 
         new ExecGitDriver(['path' => __DIR__.'/../test-data/not-existing']);
-    }
-
-    /** @test */
-    public function it_throws_an_exception_when_the_head_file_is_not_found()
-    {
-        $git = new ExecGitDriver(['path' => __DIR__.'/../test-data/no-head']);
-
-        $this->expectException(RuntimeException::class);
-
-        $git->currentBranch();
     }
 }
