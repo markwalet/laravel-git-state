@@ -38,13 +38,32 @@ class ExecGitDriver implements GitDriver
      */
     public function currentBranch(): string
     {
-        //git -st-data/on-master rev-parse --abbrev-ref HEAD
         $command = $this->command('rev-parse', ['--abbrev-ref', 'HEAD']);
 
         exec($command, $result, $code);
 
         if ($code !== 0 || count($result) !== 1) {
             throw new RuntimeException('Error while fetching the branch name');
+        }
+
+        return $result[0];
+    }
+
+    /**
+     * Get the latest commit hash.
+     *
+     * @param bool $short
+     * @return string
+     */
+    public function latestCommitHash(bool $short = false): string
+    {
+        $format = $short ? '%h' : '%H';
+        $command = $this->command('log', ['--pretty="'.$format.'"', '-n1', 'HEAD']);
+
+        exec($command, $result, $code);
+
+        if ($code !== 0 || count($result) !== 1) {
+            throw new RuntimeException('Error while fetching the latest commit');
         }
 
         return $result[0];

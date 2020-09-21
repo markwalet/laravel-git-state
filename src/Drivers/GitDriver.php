@@ -17,4 +17,12 @@ interface GitDriver
      * @return string
      */
     public function currentBranch(): string;
+
+    /**
+     * Get the latest commit hash.
+     *
+     * @param bool $short
+     * @return string
+     */
+    public function latestCommitHash(bool $short = false): string;
 }

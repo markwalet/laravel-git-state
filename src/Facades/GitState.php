@@ -9,6 +9,7 @@ use MarkWalet\GitState\Drivers\GitDriver;
  * Class GitState.
  *
  * @method static string currentBranch()
+ * @method static string latestCommitHash(bool $short = false)
  * @see GitDriver
  */
 class GitState extends Facade

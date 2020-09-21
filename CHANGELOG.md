@@ -2,6 +2,9 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.3.0...master)
 
+### Added
+- Added a `latestCommitHash()` method to the `GitDriver` interface.
+
 ### Removed
 - Removed Laravel integration in `GitStateManager` tests. ([#12](https://github.com/markwalet/laravel-git-state/issues/12))
 

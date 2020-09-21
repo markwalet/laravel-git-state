@@ -3,31 +3,21 @@
 namespace MarkWalet\GitState\Tests\Drivers;
 
 use MarkWalet\GitState\Drivers\FileGitDriver;
-use MarkWalet\GitState\Exceptions\FileNotFoundException;
+use MarkWalet\GitState\Drivers\GitDriver;
 use MarkWalet\GitState\Exceptions\InvalidArgumentException;
 use MarkWalet\GitState\Exceptions\NoGitRepositoryException;
 use PHPUnit\Framework\TestCase;
 
 class FileGitDriverTest extends TestCase
 {
-    /** @test */
-    public function it_can_get_the_latest_branch_of_a_git_repository()
+    use DriverTests;
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function driver(string $folder): GitDriver
     {
-        $git = new FileGitDriver(['path' => __DIR__.'/../test-data/on-master']);
-
-        $branch = $git->currentBranch();
-
-        $this->assertEquals('master', $branch);
-    }
-
-    /** @test */
-    public function it_does_not_escape_forward_slashes_in_the_branch_name()
-    {
-        $git = new FileGitDriver(['path' => __DIR__.'/../test-data/on-nested-feature']);
-
-        $branch = $git->currentBranch();
-
-        $this->assertEquals('feature/issue-12', $branch);
+        return new FileGitDriver(['path' => __DIR__.'/../test-data/'.$folder]);
     }
 
     /** @test */
@@ -44,15 +34,5 @@ class FileGitDriverTest extends TestCase
         $this->expectException(NoGitRepositoryException::class);
 
         new FileGitDriver(['path' => __DIR__.'/../test-data/not-existing']);
-    }
-
-    /** @test */
-    public function it_throws_an_exception_when_the_head_file_is_not_found()
-    {
-        $git = new FileGitDriver(['path' => __DIR__.'/../test-data/no-head']);
-
-        $this->expectException(FileNotFoundException::class);
-
-        $git->currentBranch();
     }
 }
