@@ -34,8 +34,9 @@ class Controller {
     
     public function index(GitDriver $driver) {
         $branch = $driver->currentBranch();
+        $commit = $driver->latestCommitHash();
         
-        return view('index', compact('branch'));
+        return view('index', compact('branch', 'commit'));
     }
 }
 ```
