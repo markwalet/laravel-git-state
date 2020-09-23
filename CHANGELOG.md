@@ -4,6 +4,7 @@
 
 ### Added
 - Added a `latestCommitHash()` method to the `GitDriver` interface.
+- Added Laravel 8 support.
 
 ### Removed
 - Removed Laravel integration in `GitStateManager` tests. ([#12](https://github.com/markwalet/laravel-git-state/issues/12))
