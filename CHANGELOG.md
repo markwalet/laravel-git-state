@@ -2,6 +2,12 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.4.0...master)
 
+### Added
+- Added PHP 8.0 support
+
+### Removed
+- Removed PHP 7.3 support
+
 ## [v1.3.0 (2020-09-23)](https://github.com/markwalet/laravel-git-state/compare/v1.3.0...v1.4.0)
 
 ### Added
