@@ -1,7 +1,0 @@
-preset: laravel
-
-enabled:
-  - phpdoc_unalign
-
-disabled:
-  - laravel_phpdoc_alignment
