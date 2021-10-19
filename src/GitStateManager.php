@@ -38,7 +38,7 @@ class GitStateManager
      * GitManager constructor.
      *
      * @param GitDriverFactory $factory
-     * @param array            $config
+     * @param array $config
      */
     public function __construct(GitDriverFactory $factory, array $config)
     {
@@ -120,7 +120,7 @@ class GitStateManager
      * Dynamically pass methods to the default codec.
      *
      * @param string $method
-     * @param array  $parameters
+     * @param array $parameters
      *
      * @return mixed
      * @throws Exceptions\MissingDriverException
