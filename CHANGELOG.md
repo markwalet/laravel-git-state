@@ -4,6 +4,7 @@
 
 ### Added
 - Added PHP 8.0 support
+- Added PHP 7.4 support in combination with Laravel 6.
 
 ### Removed
 - Removed PHP 7.3 support

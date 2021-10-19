@@ -23,6 +23,9 @@ jobs:
             testbench: ~5.12
           - illuminate: ~8.12
             testbench: ~6.7
+        exclude:
+          - php: 7.4
+            illuminate: ~6.7
 
     name: P${{ matrix.php }} - I${{ matrix.illuminate }} - ${{ matrix.stability }}
 
