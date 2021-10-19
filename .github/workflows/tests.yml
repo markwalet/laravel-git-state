@@ -14,18 +14,15 @@ jobs:
       fail-fast: true
       matrix:
         php: [7.4, 8.0]
-        illuminate: [6.*, 7.*, 8.*]
+        illuminate: [~6.20, ~7.29, ~8.12]
         stability: [prefer-lowest, prefer-stable]
         include:
-          - illuminate: 6.*
-            testbench: 4.*
-          - illuminate: 7.*
-            testbench: 5.*
-          - illuminate: 8.*
-            testbench: 6.*
-        exclude:
-          - php: 7.4
-            illuminate: 6.*
+          - illuminate: ~6.20
+            testbench: ~4.13
+          - illuminate: ~7.29
+            testbench: ~5.12
+          - illuminate: ~8.12
+            testbench: ~6.7
 
     name: P${{ matrix.php }} - I${{ matrix.illuminate }} - ${{ matrix.stability }}
 
