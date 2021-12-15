@@ -79,6 +79,6 @@ class GitDriverFactoryTest extends TestCase
      */
     private function validPath(): string
     {
-        return __DIR__ . '/test-data/on-master';
+        return __DIR__.'/test-data/on-master';
     }
 }

@@ -17,7 +17,7 @@ class FileGitDriverTest extends TestCase
      */
     protected function driver(string $folder): GitDriver
     {
-        return new FileGitDriver(['path' => __DIR__ . '/../test-data/' . $folder]);
+        return new FileGitDriver(['path' => __DIR__.'/../test-data/'.$folder]);
     }
 
     /** @test */
@@ -33,6 +33,6 @@ class FileGitDriverTest extends TestCase
     {
         $this->expectException(NoGitRepositoryException::class);
 
-        new FileGitDriver(['path' => __DIR__ . '/../test-data/not-existing']);
+        new FileGitDriver(['path' => __DIR__.'/../test-data/not-existing']);
     }
 }
