@@ -18,14 +18,12 @@ jobs:
         stability: [prefer-lowest, prefer-stable]
         include:
           - illuminate: ~6.20
-            testbench: 4.*
+            testbench: ~4.13
           - illuminate: ~7.29
-            testbench: 5.*
+            testbench: ~5.12
           - illuminate: ~8.74
             testbench: 6.*
         exclude:
-          - php: 7.4
-            illuminate: ~8.74
           - php: 8.1
             illuminate: ~7.29
           - php: 8.1
