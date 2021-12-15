@@ -2,9 +2,9 @@
 
 namespace MarkWalet\GitState\Tests\Drivers;
 
+use InvalidArgumentException;
 use MarkWalet\GitState\Drivers\FileGitDriver;
 use MarkWalet\GitState\Drivers\GitDriver;
-use MarkWalet\GitState\Exceptions\InvalidArgumentException;
 use MarkWalet\GitState\Exceptions\NoGitRepositoryException;
 use PHPUnit\Framework\TestCase;
 
