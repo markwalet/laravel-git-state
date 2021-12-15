@@ -2,6 +2,11 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.4.0...master)
 
+## [v1.5.1 (2021-12-15)](https://github.com/markwalet/laravel-git-state/compare/v1.5.0...v1.5.1)
+
+### Fixed
+- Removed typo in readme.
+
 ## [v1.5.0 (2021-12-15)](https://github.com/markwalet/laravel-git-state/compare/v1.4.1...v1.5.0)
 
 ### Added
