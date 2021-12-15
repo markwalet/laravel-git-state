@@ -2,10 +2,10 @@
 
 namespace MarkWalet\GitState\Tests;
 
+use InvalidArgumentException;
 use MarkWalet\GitState\Drivers\ExecGitDriver;
 use MarkWalet\GitState\Drivers\FakeGitDriver;
 use MarkWalet\GitState\Drivers\FileGitDriver;
-use MarkWalet\GitState\Exceptions\InvalidArgumentException;
 use MarkWalet\GitState\Exceptions\MissingDriverException;
 use MarkWalet\GitState\GitDriverFactory;
 use PHPUnit\Framework\TestCase;
@@ -15,7 +15,7 @@ class GitDriverFactoryTest extends TestCase
     /** @test */
     public function it_can_create_a_fake_driver()
     {
-        $factory = new GitDriverFactory;
+        $factory = new GitDriverFactory();
 
         $driver = $factory->make([
             'driver' => 'fake',
@@ -27,7 +27,7 @@ class GitDriverFactoryTest extends TestCase
     /** @test */
     public function it_can_create_an_exec_driver()
     {
-        $factory = new GitDriverFactory;
+        $factory = new GitDriverFactory();
 
         $driver = $factory->make([
             'driver' => 'exec',
@@ -40,7 +40,7 @@ class GitDriverFactoryTest extends TestCase
     /** @test */
     public function it_can_create_a_file_driver()
     {
-        $factory = new GitDriverFactory;
+        $factory = new GitDriverFactory();
 
         $driver = $factory->make([
             'driver' => 'file',
@@ -53,7 +53,7 @@ class GitDriverFactoryTest extends TestCase
     /** @test */
     public function it_throws_an_exception_when_the_driver_is_not_defined()
     {
-        $factory = new GitDriverFactory;
+        $factory = new GitDriverFactory();
 
         $this->expectException(InvalidArgumentException::class);
 
@@ -63,7 +63,7 @@ class GitDriverFactoryTest extends TestCase
     /** @test */
     public function it_throws_an_exception_when_the_driver_does_not_exist()
     {
-        $factory = new GitDriverFactory;
+        $factory = new GitDriverFactory();
 
         $this->expectException(MissingDriverException::class);
 
@@ -77,8 +77,8 @@ class GitDriverFactoryTest extends TestCase
      *
      * @return string
      */
-    private function validPath()
+    private function validPath(): string
     {
-        return __DIR__.'/test-data/on-master';
+        return __DIR__ . '/test-data/on-master';
     }
 }

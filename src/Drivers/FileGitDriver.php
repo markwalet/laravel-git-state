@@ -4,15 +4,11 @@ namespace MarkWalet\GitState\Drivers;
 
 use MarkWalet\GitState\Exceptions\NoGitRepositoryException;
 use MarkWalet\GitState\Exceptions\RuntimeException;
-use MarkWalet\GitState\RequiresConfigurationKeys;
+use Webmozart\Assert\Assert;
 
 class FileGitDriver implements GitDriver
 {
-    use RequiresConfigurationKeys;
-
-    /**
-     * @var string
-     */
+    /** @var string */
     private $folder;
 
     /**
@@ -22,7 +18,7 @@ class FileGitDriver implements GitDriver
      */
     public function __construct(array $config = [])
     {
-        $this->require($config, 'path');
+        Assert::keyExists($config, 'path');
 
         $this->folder = $config['path'];
 

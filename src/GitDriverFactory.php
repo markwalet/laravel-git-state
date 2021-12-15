@@ -7,11 +7,10 @@ use MarkWalet\GitState\Drivers\FakeGitDriver;
 use MarkWalet\GitState\Drivers\FileGitDriver;
 use MarkWalet\GitState\Drivers\GitDriver;
 use MarkWalet\GitState\Exceptions\MissingDriverException;
+use Webmozart\Assert\Assert;
 
 class GitDriverFactory
 {
-    use RequiresConfigurationKeys;
-
     /**
      * Create a new codec based on the given configuration.
      *
@@ -20,7 +19,7 @@ class GitDriverFactory
      */
     public function make(array $config): GitDriver
     {
-        $this->require($config, 'driver');
+        Assert::keyExists($config, 'driver');
 
         return $this->createDriver($config['driver'], $config);
     }

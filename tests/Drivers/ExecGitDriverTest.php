@@ -2,9 +2,9 @@
 
 namespace MarkWalet\GitState\Tests\Drivers;
 
+use InvalidArgumentException;
 use MarkWalet\GitState\Drivers\ExecGitDriver;
 use MarkWalet\GitState\Drivers\GitDriver;
-use MarkWalet\GitState\Exceptions\InvalidArgumentException;
 use MarkWalet\GitState\Exceptions\NoGitRepositoryException;
 use PHPUnit\Framework\TestCase;
 
@@ -17,7 +17,7 @@ class ExecGitDriverTest extends TestCase
      */
     protected function driver(string $folder): GitDriver
     {
-        return new ExecGitDriver(['path' => __DIR__.'/../test-data/'.$folder]);
+        return new ExecGitDriver(['path' => __DIR__ . '/../test-data/' . $folder]);
     }
 
     /** @test */
@@ -33,6 +33,6 @@ class ExecGitDriverTest extends TestCase
     {
         $this->expectException(NoGitRepositoryException::class);
 
-        new ExecGitDriver(['path' => __DIR__.'/../test-data/not-existing']);
+        new ExecGitDriver(['path' => __DIR__ . '/../test-data/not-existing']);
     }
 }
