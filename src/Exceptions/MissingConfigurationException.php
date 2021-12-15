@@ -7,13 +7,13 @@ use RuntimeException;
 class MissingConfigurationException extends RuntimeException
 {
     /**
-     * NoGitRepositoryException constructor.
+     * MissingConfigurationException constructor.
      *
-     * @param $key
+     * @param string $key
      */
     public function __construct(string $key)
     {
-        $message = "Configuration key `{$key}` is missing.";
+        $message = "Configuration key `$key` is missing.";
 
         parent::__construct($message);
     }

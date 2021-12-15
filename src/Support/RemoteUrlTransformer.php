@@ -12,7 +12,7 @@ class RemoteUrlTransformer
      * @param string $url
      * @return string
      */
-    public static function transform(string $url)
+    public static function transform(string $url): string
     {
         // Remove ssh user.
         $url = last(explode('@', $url, 2));

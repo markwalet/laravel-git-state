@@ -17,22 +17,22 @@ class GitStateManager
      *
      * @var GitDriverFactory
      */
-    private $factory;
+    private GitDriverFactory $factory;
 
     /**
      * The application instance.
      *
      * @var array|string[]
      */
-    protected $config;
+    protected array $config;
 
     /**
      * The active git driver instances.
      * This is used for caching.
      *
-     * @var array
+     * @var array|GitDriver[]
      */
-    protected $drivers = [];
+    protected array $drivers = [];
 
     /**
      * GitManager constructor.
@@ -98,7 +98,7 @@ class GitStateManager
      * @return array
      * @throws MissingConfigurationException
      */
-    protected function configuration(string $name)
+    protected function configuration(string $name): array
     {
         // Get a list of drivers.
         $drivers = Arr::get($this->config, 'drivers');
@@ -109,7 +109,7 @@ class GitStateManager
 
         // Throw exception when configuration is not found.
         if (array_key_exists($name, $drivers) === false) {
-            throw new MissingConfigurationException("drivers.{$name}");
+            throw new MissingConfigurationException("drivers.$name");
         }
 
         // Return driver configuration.
@@ -125,7 +125,7 @@ class GitStateManager
      * @return mixed
      * @throws Exceptions\MissingDriverException
      */
-    public function __call($method, $parameters)
+    public function __call(string $method, array $parameters)
     {
         return $this->driver()->$method(...$parameters);
     }
