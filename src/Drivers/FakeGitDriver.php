@@ -3,7 +3,6 @@
 namespace MarkWalet\GitState\Drivers;
 
 use Illuminate\Support\Arr;
-use Webmozart\Assert\Assert;
 
 class FakeGitDriver implements GitDriver
 {
@@ -24,7 +23,7 @@ class FakeGitDriver implements GitDriver
      */
     public function __construct(array $config = [])
     {
-        $this->branch = (string)Arr::get($config, 'branch', 'master');
+        $this->branch = (string) Arr::get($config, 'branch', 'master');
     }
 
     /**
