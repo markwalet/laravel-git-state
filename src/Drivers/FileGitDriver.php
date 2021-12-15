@@ -2,7 +2,6 @@
 
 namespace MarkWalet\GitState\Drivers;
 
-use MarkWalet\GitState\Exceptions\FileNotFoundException;
 use MarkWalet\GitState\Exceptions\NoGitRepositoryException;
 use MarkWalet\GitState\Exceptions\RuntimeException;
 use Webmozart\Assert\Assert;

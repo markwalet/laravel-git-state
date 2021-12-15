@@ -3,7 +3,6 @@
 namespace MarkWalet\GitState\Tests\Drivers;
 
 use MarkWalet\GitState\Drivers\GitDriver;
-use MarkWalet\GitState\Exceptions\FileNotFoundException;
 use MarkWalet\GitState\Exceptions\RuntimeException;
 
 trait DriverTests
