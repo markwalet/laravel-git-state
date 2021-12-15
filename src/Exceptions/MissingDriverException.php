@@ -7,13 +7,13 @@ use RuntimeException;
 class MissingDriverException extends RuntimeException
 {
     /**
-     * NoGitRepositoryException constructor.
+     * MissingDriverException constructor.
      *
-     * @param $driver
+     * @param string $driver
      */
-    public function __construct($driver)
+    public function __construct(string $driver)
     {
-        $message = "Driver `{$driver}` is not supported for git-state.";
+        $message = "Driver `$driver` is not supported for git-state.";
 
         parent::__construct($message);
     }

@@ -83,7 +83,7 @@ class FileGitDriver implements GitDriver
      * @param string $file
      * @return string
      */
-    private function path(string $file)
+    private function path(string $file): string
     {
         return $this->folder.DIRECTORY_SEPARATOR.$file;
     }

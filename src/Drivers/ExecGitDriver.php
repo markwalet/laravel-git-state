@@ -74,14 +74,14 @@ class ExecGitDriver implements GitDriver
      * @param array $options
      * @return string
      */
-    private function command(string $command, array $options = [])
+    private function command(string $command, array $options = []): string
     {
         $commandOptions = $this->parseOptions($options);
         $gitOptions = $this->parseOptions([
             '--git-dir' => $this->folder,
         ]);
 
-        return "git {$gitOptions} {$command} {$commandOptions} 2>/dev/null";
+        return "git $gitOptions $command $commandOptions 2>/dev/null";
     }
 
     /**
@@ -90,14 +90,14 @@ class ExecGitDriver implements GitDriver
      * @param array $options
      * @return string
      */
-    private function parseOptions(array $options = [])
+    private function parseOptions(array $options = []): string
     {
         return collect($options)->map(function ($value, $key) {
             if (is_int($key)) {
                 return $value;
             }
 
-            return "{$key}={$value}";
+            return "$key=$value";
         })->implode(' ');
     }
 }
