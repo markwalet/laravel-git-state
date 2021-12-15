@@ -11,21 +11,23 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
-        php: [7.4, 8.0]
-        illuminate: [~6.20, ~7.29, ~8.12]
+        php: [7.4, 8.0, 8.1]
+        illuminate: [~6.20, ~7.29, ~8.74]
         stability: [prefer-lowest, prefer-stable]
         include:
           - illuminate: ~6.20
             testbench: ~4.13
           - illuminate: ~7.29
             testbench: ~5.12
-          - illuminate: ~8.12
-            testbench: ~6.7
+          - illuminate: ~8.74
+            testbench: 6.*
         exclude:
-          - php: 7.4
-            illuminate: ~6.7
+          - php: 8.1
+            illuminate: ~7.29
+          - php: 8.1
+            illuminate: ~6.20
 
     name: P${{ matrix.php }} - I${{ matrix.illuminate }} - ${{ matrix.stability }}
 
@@ -48,10 +50,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer require "illuminate/contracts:${{ matrix.illuminate }}" --no-interaction --no-update
-          composer require "illuminate/support:${{ matrix.illuminate }}" --no-interaction --no-update
-          composer require "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
-          composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-suggest
+          composer require "laravel/framework:${{ matrix.illuminate }}" --no-interaction --no-update
+          composer require "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update --dev
+          composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: Execute tests
         run: vendor/bin/phpunit --verbose
