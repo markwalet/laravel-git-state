@@ -7,7 +7,7 @@ use RuntimeException as BaseRuntimeException;
 class RuntimeException extends BaseRuntimeException
 {
     /**
-     * NoGitRepositoryException constructor.
+     * RuntimeException constructor.
      *
      * @param $message
      */

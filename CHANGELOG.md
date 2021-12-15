@@ -2,6 +2,15 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.4.0...master)
 
+## [v1.5.0 (2021-12-15)](https://github.com/markwalet/laravel-git-state/compare/v1.4.1...v1.5.0)
+
+### Added
+- Added PHP 8.1 support ([#18](https://github.com/markwalet/laravel-git-state/issues/18))
+
+### Changed
+- Used [`webmozart/assert`](https://github.com/webmozarts/assert) instead of custom logic to reduce complexity.
+- Simplified exception code style.
+
 ## [v1.4.1 (2020-10-19)](https://github.com/markwalet/laravel-git-state/compare/v1.4.0...v1.4.1)
 
 ### Added

@@ -3,6 +3,7 @@
 namespace MarkWalet\GitState\Tests\Drivers;
 
 use MarkWalet\GitState\Drivers\GitDriver;
+use MarkWalet\GitState\Exceptions\FileNotFoundException;
 use MarkWalet\GitState\Exceptions\RuntimeException;
 
 trait DriverTests
@@ -63,5 +64,15 @@ trait DriverTests
         $commit = $git->latestCommitHash(false);
 
         $this->assertEquals('202131f0ba24d03d75667ce586be1c1ce3983ce8', $commit);
+    }
+
+    /** @test */
+    public function it_throws_an_exception_when_the_head_file_is_not_found_for_the_latest_commit()
+    {
+        $this->expectException(RuntimeException::class);
+
+        $git = $this->driver('broken-head');
+
+        $git->latestCommitHash();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace MarkWalet\GitState\Drivers;
 
+use MarkWalet\GitState\Exceptions\FileNotFoundException;
 use MarkWalet\GitState\Exceptions\NoGitRepositoryException;
 use MarkWalet\GitState\Exceptions\RuntimeException;
 use Webmozart\Assert\Assert;
@@ -9,7 +10,7 @@ use Webmozart\Assert\Assert;
 class FileGitDriver implements GitDriver
 {
     /** @var string */
-    private $folder;
+    private string $folder;
 
     /**
      * GitDriverInterface constructor.
@@ -51,7 +52,7 @@ class FileGitDriver implements GitDriver
         $path = $this->path('refs'.DIRECTORY_SEPARATOR.'heads'.DIRECTORY_SEPARATOR.$this->currentBranch());
 
         if (file_exists($path) === false) {
-            throw new RuntimeException($path);
+            throw new RuntimeException("File `$path` is not found.");
         }
 
         $hash = file_get_contents($path);
