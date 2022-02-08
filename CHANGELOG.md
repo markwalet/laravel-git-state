@@ -2,6 +2,9 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.4.0...master)
 
+### Added
+- Added Laravel 9 support.
+
 ## [v1.5.1 (2021-12-15)](https://github.com/markwalet/laravel-git-state/compare/v1.5.0...v1.5.1)
 
 ### Fixed
