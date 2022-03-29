@@ -5,7 +5,6 @@ namespace MarkWalet\GitState\Tests;
 use MarkWalet\GitState\Drivers\FakeGitDriver;
 use MarkWalet\GitState\Drivers\GitDriver;
 use MarkWalet\GitState\Facades\GitState;
-use MarkWalet\GitState\GitDriverFactory;
 use MarkWalet\GitState\GitStateManager;
 
 class GitStateServiceProviderTest extends LaravelTestCase
@@ -40,18 +39,17 @@ class GitStateServiceProviderTest extends LaravelTestCase
     /** @test */
     public function it_registers_a_facade()
     {
-        /** @var GitStateManager $manager */
-        $this->app->bind(GitDriverFactory::class, function () {
-            $driver = $this->mock(GitDriver::class);
-            $driver->expects('currentBranch')->once()->andReturn('test-branch');
-
-            $factory = $this->mock(GitDriverFactory::class);
-            $factory->expects('make')->once()->andReturn($driver);
-
-            return $factory;
-        });
+        config()->set(['git-state' => [
+            'default' => 'file',
+            'drivers' => [
+                'file' => [
+                    'driver' => 'file',
+                    'path' => __DIR__.'/test-data/on-nested-feature',
+                ],
+            ],
+        ]]);
         $branch = GitState::currentBranch();
 
-        $this->assertEquals('test-branch', $branch);
+        $this->assertEquals('feature/issue-12', $branch);
     }
 }
