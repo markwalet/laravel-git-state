@@ -9,11 +9,11 @@ class NoGitRepositoryException extends RuntimeException
     /**
      * NoGitRepositoryException constructor.
      *
-     * @param string $folder
+     * @param string $path
      */
-    public function __construct(string $folder)
+    public function __construct(string $path)
     {
-        $message = "`$folder` is not a valid git repository.";
+        $message = "`$path` is not a valid git repository.";
 
         parent::__construct($message);
     }

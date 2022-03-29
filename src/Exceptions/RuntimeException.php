@@ -6,13 +6,4 @@ use RuntimeException as BaseRuntimeException;
 
 class RuntimeException extends BaseRuntimeException
 {
-    /**
-     * RuntimeException constructor.
-     *
-     * @param $message
-     */
-    public function __construct($message)
-    {
-        parent::__construct($message);
-    }
 }
