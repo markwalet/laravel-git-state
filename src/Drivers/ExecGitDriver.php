@@ -23,10 +23,6 @@ class ExecGitDriver implements GitDriver
         Assert::keyExists($config, 'path');
 
         $this->folder = $config['path'];
-
-        if (is_dir($this->folder) === false) {
-            throw new NoGitRepositoryException($this->folder);
-        }
     }
 
     /**
@@ -36,6 +32,10 @@ class ExecGitDriver implements GitDriver
      */
     public function currentBranch(): string
     {
+        if (is_dir($this->folder) === false) {
+            throw new NoGitRepositoryException($this->folder);
+        }
+
         $command = $this->command('rev-parse', ['--abbrev-ref', 'HEAD']);
 
         exec($command, $result, $code);
