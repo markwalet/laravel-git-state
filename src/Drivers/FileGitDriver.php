@@ -21,10 +21,6 @@ class FileGitDriver implements GitDriver
         Assert::keyExists($config, 'path');
 
         $this->folder = $config['path'];
-
-        if (is_dir($this->folder) === false) {
-            throw new NoGitRepositoryException($this->folder);
-        }
     }
 
     /**
@@ -34,6 +30,10 @@ class FileGitDriver implements GitDriver
      */
     public function currentBranch(): string
     {
+        if (is_dir($this->folder) === false) {
+            throw new NoGitRepositoryException($this->folder);
+        }
+
         $head = $this->head();
         $parts = explode('/', $head, 3);
 
@@ -48,6 +48,10 @@ class FileGitDriver implements GitDriver
      */
     public function latestCommitHash(bool $short = false): string
     {
+        if (is_dir($this->folder) === false) {
+            throw new NoGitRepositoryException($this->folder);
+        }
+
         $path = $this->path('refs'.DIRECTORY_SEPARATOR.'heads'.DIRECTORY_SEPARATOR.$this->currentBranch());
 
         if (file_exists($path) === false) {

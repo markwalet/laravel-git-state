@@ -55,6 +55,10 @@ class ExecGitDriver implements GitDriver
      */
     public function latestCommitHash(bool $short = false): string
     {
+        if (is_dir($this->folder) === false) {
+            throw new NoGitRepositoryException($this->folder);
+        }
+
         $format = $short ? '%h' : '%H';
         $command = $this->command('log', ['--pretty="'.$format.'"', '-n1', 'HEAD']);
 

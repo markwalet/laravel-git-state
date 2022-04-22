@@ -29,10 +29,22 @@ class ExecGitDriverTest extends TestCase
     }
 
     /** @test */
-    public function it_throws_an_exception_when_the_folder_is_not_found()
+    public function it_throws_an_exception_while_fetching_the_current_branch_name_when_the_folder_is_not_found()
     {
         $this->expectException(NoGitRepositoryException::class);
 
-        new ExecGitDriver(['path' => __DIR__.'/../test-data/not-existing']);
+        $driver = new ExecGitDriver(['path' => __DIR__.'/../test-data/not-existing']);
+
+        $driver->currentBranch();
+    }
+
+    /** @test */
+    public function it_throws_an_exception_while_fetching_the_commit_hash_when_the_folder_is_not_found()
+    {
+        $this->expectException(NoGitRepositoryException::class);
+
+        $driver = new ExecGitDriver(['path' => __DIR__.'/../test-data/not-existing']);
+
+        $driver->latestCommitHash();
     }
 }
