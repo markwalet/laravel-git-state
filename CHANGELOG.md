@@ -1,9 +1,11 @@
 # Changelog
 
-## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.4.0...master)
+## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.6.1...master)
+
+## [v1.6.1 (2022-04-22)](https://github.com/markwalet/laravel-git-state/compare/v1.6.0...v1.6.1)
 
 ### Fixed
-- Moved path assertion out of constructor for the `ExecGitDriver`.
+- Moved path assertion out of constructor for the git drivers.
 
 ## [v1.6.0 (2022-02-05)](https://github.com/markwalet/laravel-git-state/compare/v1.5.1...v1.6.0)
 
