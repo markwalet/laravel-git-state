@@ -38,7 +38,7 @@ class GitStateManager
      * GitManager constructor.
      *
      * @param GitDriverFactory $factory
-     * @param array $config
+     * @param array|mixed[] $config
      */
     public function __construct(GitDriverFactory $factory, array $config)
     {
@@ -62,7 +62,7 @@ class GitStateManager
         $config = $this->configuration($name);
 
         // Return the driver when it is already initialized.
-        if (array_key_exists($name, $this->drivers)) {
+        if (array_key_exists($name, $this->getActiveDrivers())) {
             return $this->drivers[$name];
         }
 
@@ -81,9 +81,9 @@ class GitStateManager
     }
 
     /**
-     * Get a list of all drivers that are initialized.
+     * Get a list of all drivers that are already initialized.
      *
-     * @return array
+     * @return array|GitDriver[]
      */
     public function getActiveDrivers(): array
     {
@@ -95,7 +95,7 @@ class GitStateManager
      *
      * @param string $name
      *
-     * @return array
+     * @return array|mixed[]
      * @throws MissingConfigurationException
      */
     protected function configuration(string $name): array
@@ -120,7 +120,7 @@ class GitStateManager
      * Dynamically pass methods to the default codec.
      *
      * @param string $method
-     * @param array $parameters
+     * @param array|mixed[] $parameters
      *
      * @return mixed
      * @throws Exceptions\MissingDriverException
