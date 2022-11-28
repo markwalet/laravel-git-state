@@ -3,6 +3,9 @@
   "description": "A Laravel package that gives you information about the current git state.",
   "type": "library",
   "license": "MIT",
+  "support": {
+    "issues": "https://github.com/markwalet/laravel-git-state/issues"
+  },
   "authors": [
     {
       "name": "Mark Walet",
