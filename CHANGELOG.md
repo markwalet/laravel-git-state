@@ -1,6 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.6.1...master)
+## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.7.0...master)
+
+## [v1.7.0 (2022-04-22)](https://github.com/markwalet/laravel-git-state/compare/v1.6.1...v1.7.0)
 
 ### Added
 - Added support for Laravel 10
