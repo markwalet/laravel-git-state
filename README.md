@@ -2,7 +2,7 @@
 
 [![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Latest Stable Version](https://poser.pugx.org/markwalet/laravel-git-state/v/stable)](https://packagist.org/packages/markwalet/laravel-git-state)
-[![Build status](https://img.shields.io/github/workflow/status/markwalet/laravel-git-state/tests?style=flat-square&label=tests)](https://github.com/markwalet/laravel-git-state/actions)
+[![Build status](https://img.shields.io/github/actions/workflow/status/markwalet/laravel-git-state/tests.yml?branch=master)](https://github.com/markwalet/laravel-git-state/actions)
 [![Coverage](https://codecov.io/gh/markwalet/laravel-git-state/branch/master/graph/badge.svg)](https://codecov.io/gh/markwalet/laravel-git-state)
 [![Total Downloads](https://poser.pugx.org/markwalet/laravel-git-state/downloads)](https://packagist.org/packages/markwalet/laravel-git-state)
 
