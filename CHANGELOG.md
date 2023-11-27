@@ -1,6 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.7.0...master)
+## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.8.0...master)
+
+## [v1.8.0 (2023-11-27)](https://github.com/markwalet/laravel-git-state/compare/v1.7.0...v1.8.0)
 
 ### Added
 - Added support for PHP 8.3.
