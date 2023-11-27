@@ -1,0 +1,35 @@
+name: coverage
+
+on: [push, pull_request]
+
+jobs:
+  windows-test:
+    runs-on: windows-latest
+
+    name: Windows test
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.composer/cache/files
+          key: dependencies-php-8.3-illuminate-10.*-composer-${{ hashFiles('composer.json') }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.3
+          extensions: dom, curl, libxml, mbstring, zip, fileinfo, pdo, sqlite, pdo_sqlite, gd
+          coverage: xdebug
+
+      - name: Install dependencies
+        run: composer update --prefer-dist --no-interaction
+
+      - name: Calculate coverage statistics
+        run: vendor/bin/phpunit --coverage-clover 'clover.xml'
+
+      - name: Send coverage statistics
+        uses: codecov/codecov-action@v1

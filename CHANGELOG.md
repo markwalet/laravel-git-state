@@ -3,7 +3,10 @@
 ## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.7.0...master)
 
 ### Added
-- Added support for PHP 8.3
+- Added support for PHP 8.3.
+
+### Fixed
+- Fixed Windows support for ExecDriver.
 
 ## [v1.7.0 (2023-02-17)](https://github.com/markwalet/laravel-git-state/compare/v1.6.1...v1.7.0)
 
