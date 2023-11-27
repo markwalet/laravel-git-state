@@ -2,15 +2,18 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.7.0...master)
 
+### Added
+- Added support for PHP 8.3
+
 ## [v1.7.0 (2023-02-17)](https://github.com/markwalet/laravel-git-state/compare/v1.6.1...v1.7.0)
 
 ### Added
-- Added support for Laravel 10
-- Added support for PHP 8.2
+- Added support for Laravel 10.
+- Added support for PHP 8.2.
 
 ### Removed
-- Removed support for PHP 7.4
-- Removed support for Laravel 6
+- Removed support for PHP 7.4.
+- Removed support for Laravel 6.
 
 ## [v1.6.1 (2022-04-22)](https://github.com/markwalet/laravel-git-state/compare/v1.6.0...v1.6.1)
 
