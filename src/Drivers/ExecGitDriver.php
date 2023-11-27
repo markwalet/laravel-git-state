@@ -85,7 +85,9 @@ class ExecGitDriver implements GitDriver
             '--git-dir' => $this->folder,
         ]);
 
-        return "git $gitOptions $command $commandOptions 2>/dev/null";
+        $nullDevice = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') ? '/nul' : '/dev/null';
+
+        return "git $gitOptions $command $commandOptions 2>$nullDevice";
     }
 
     /**
