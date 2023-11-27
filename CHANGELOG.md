@@ -4,9 +4,11 @@
 
 ### Added
 - Added support for PHP 8.3.
+- Added Dependabot integration.
 
 ### Fixed
 - Fixed Windows support for ExecDriver.
+- Reduced amount of checks when creating pull requests.
 
 ## [v1.7.0 (2023-02-17)](https://github.com/markwalet/laravel-git-state/compare/v1.6.1...v1.7.0)
 

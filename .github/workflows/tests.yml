@@ -2,6 +2,9 @@ name: tests
 
 on:
   push:
+    branches:
+      - 'main'
+      - 'master'
   pull_request:
   schedule:
     - cron: '0 0 * * *'
@@ -43,10 +46,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Cache dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.composer/cache/files
           key: dependencies-php-${{ matrix.php }}-illuminate-${{ matrix.illuminate }}-composer-${{ hashFiles('composer.json') }}

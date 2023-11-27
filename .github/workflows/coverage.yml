@@ -1,6 +1,11 @@
 name: coverage
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - 'main'
+      - 'master'
+  pull_request:
 
 jobs:
   coverage:
@@ -10,10 +15,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Cache dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.composer/cache/files
           key: dependencies-php-8.3-illuminate-10.*-composer-${{ hashFiles('composer.json') }}
