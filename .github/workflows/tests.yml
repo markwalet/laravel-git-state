@@ -36,6 +36,8 @@ jobs:
             illuminate: ~7.29
           - php: 8.3
             illuminate: ~7.29
+          - php: 8.3
+            illuminate: ~8.74
 
     name: P${{ matrix.php }} - I${{ matrix.illuminate }} - ${{ matrix.stability }}
 
