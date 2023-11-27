@@ -6,7 +6,7 @@ jobs:
   windows-test:
     runs-on: windows-latest
 
-    name: Coverage
+    name: Windows test
 
     steps:
       - name: Checkout code
