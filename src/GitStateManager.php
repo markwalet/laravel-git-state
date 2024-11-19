@@ -53,7 +53,7 @@ class GitStateManager
      *
      * @return GitDriver
      */
-    public function driver(string $name = null): GitDriver
+    public function driver(string|null $name = null): GitDriver
     {
         // Set the name to default when null.
         $name = $name ?: $this->getDefaultDriver();
