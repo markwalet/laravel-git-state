@@ -1,6 +1,12 @@
 # Changelog
 
-## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.9.0...master)
+## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.9.1...master)
+
+
+## [v1.9.1 (2024-11-19)](https://github.com/markwalet/laravel-git-state/compare/v1.9.0...v1.9.1)
+
+### Added
+- Added support for PHP 8.4
 
 ## [v1.9.0 (2024-03-13)](https://github.com/markwalet/laravel-git-state/compare/v1.8.0...v1.9.0)
 
