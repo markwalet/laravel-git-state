@@ -3,11 +3,12 @@
 namespace MarkWalet\GitState\Tests\Exceptions;
 
 use MarkWalet\GitState\Exceptions\NoGitRepositoryException;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class NoGitRepositoryExceptionTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_can_create_an_exception_instance(): void
     {
         $exception = new NoGitRepositoryException('example-path');

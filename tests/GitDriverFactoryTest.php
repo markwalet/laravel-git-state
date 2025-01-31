@@ -8,12 +8,13 @@ use MarkWalet\GitState\Drivers\FakeGitDriver;
 use MarkWalet\GitState\Drivers\FileGitDriver;
 use MarkWalet\GitState\Exceptions\MissingDriverException;
 use MarkWalet\GitState\GitDriverFactory;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class GitDriverFactoryTest extends TestCase
 {
-    /** @test */
-    public function it_can_create_a_fake_driver()
+    #[Test]
+    public function it_can_create_a_fake_driver(): void
     {
         $factory = new GitDriverFactory();
 
@@ -24,8 +25,8 @@ class GitDriverFactoryTest extends TestCase
         $this->assertInstanceOf(FakeGitDriver::class, $driver);
     }
 
-    /** @test */
-    public function it_can_create_an_exec_driver()
+    #[Test]
+    public function it_can_create_an_exec_driver(): void
     {
         $factory = new GitDriverFactory();
 
@@ -37,8 +38,8 @@ class GitDriverFactoryTest extends TestCase
         $this->assertInstanceOf(ExecGitDriver::class, $driver);
     }
 
-    /** @test */
-    public function it_can_create_a_file_driver()
+    #[Test]
+    public function it_can_create_a_file_driver(): void
     {
         $factory = new GitDriverFactory();
 
@@ -50,8 +51,8 @@ class GitDriverFactoryTest extends TestCase
         $this->assertInstanceOf(FileGitDriver::class, $driver);
     }
 
-    /** @test */
-    public function it_throws_an_exception_when_the_driver_is_not_defined()
+    #[Test]
+    public function it_throws_an_exception_when_the_driver_is_not_defined(): void
     {
         $factory = new GitDriverFactory();
 
@@ -60,8 +61,8 @@ class GitDriverFactoryTest extends TestCase
         $factory->make([]);
     }
 
-    /** @test */
-    public function it_throws_an_exception_when_the_driver_does_not_exist()
+    #[Test]
+    public function it_throws_an_exception_when_the_driver_does_not_exist(): void
     {
         $factory = new GitDriverFactory();
 

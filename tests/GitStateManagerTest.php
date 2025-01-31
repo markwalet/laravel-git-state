@@ -7,12 +7,13 @@ use MarkWalet\GitState\Drivers\FileGitDriver;
 use MarkWalet\GitState\Exceptions\MissingConfigurationException;
 use MarkWalet\GitState\GitDriverFactory;
 use MarkWalet\GitState\GitStateManager;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class GitStateManagerTest extends TestCase
 {
-    /** @test */
-    public function it_can_initialize_a_driver()
+    #[Test]
+    public function it_can_initialize_a_driver(): void
     {
         $manager = new GitStateManager(new GitDriverFactory(), [
             'drivers' => [
@@ -28,8 +29,8 @@ class GitStateManagerTest extends TestCase
         $this->assertInstanceOf(FileGitDriver::class, $driver);
     }
 
-    /** @test */
-    public function it_uses_the_default_driver_if_no_driver_is_specified()
+    #[Test]
+    public function it_uses_the_default_driver_if_no_driver_is_specified(): void
     {
         $manager = new GitStateManager(new GitDriverFactory(), [
             'default' => 'fake-instance',
@@ -45,8 +46,8 @@ class GitStateManagerTest extends TestCase
         $this->assertInstanceOf(FakeGitDriver::class, $driver);
     }
 
-    /** @test */
-    public function it_throws_an_exception_when_no_drivers_are_specified()
+    #[Test]
+    public function it_throws_an_exception_when_no_drivers_are_specified(): void
     {
         $manager = new GitStateManager(new GitDriverFactory(), [
             'drivers' => null,
@@ -57,8 +58,8 @@ class GitStateManagerTest extends TestCase
         $manager->driver('fake');
     }
 
-    /** @test */
-    public function it_throws_an_exception_when_the_configuration_for_the_given_driver_is_not_found()
+    #[Test]
+    public function it_throws_an_exception_when_the_configuration_for_the_given_driver_is_not_found(): void
     {
         $manager = new GitStateManager(new GitDriverFactory(), [
             'default' => 'fake-instance',
@@ -69,8 +70,8 @@ class GitStateManagerTest extends TestCase
         $manager->driver('non-existing');
     }
 
-    /** @test */
-    public function it_keeps_track_of_all_active_drivers()
+    #[Test]
+    public function it_keeps_track_of_all_active_drivers(): void
     {
         $manager = new GitStateManager(new GitDriverFactory(), [
             'default' => 'fake-instance',
@@ -96,8 +97,8 @@ class GitStateManagerTest extends TestCase
         $this->assertCount(2, $after);
     }
 
-    /** @test */
-    public function initializes_the_same_driver_only_once()
+    #[Test]
+    public function initializes_the_same_driver_only_once(): void
     {
         $factory = $this->createMock(GitDriverFactory::class);
         $factory->expects($this->exactly(2))->method('make');

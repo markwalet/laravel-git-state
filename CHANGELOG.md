@@ -2,6 +2,8 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.9.1...master)
 
+### Added
+- Added support for Laravel 12
 
 ## [v1.9.1 (2024-11-19)](https://github.com/markwalet/laravel-git-state/compare/v1.9.0...v1.9.1)
 
