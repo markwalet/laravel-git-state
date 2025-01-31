@@ -6,6 +6,7 @@ use InvalidArgumentException;
 use MarkWalet\GitState\Drivers\ExecGitDriver;
 use MarkWalet\GitState\Drivers\GitDriver;
 use MarkWalet\GitState\Exceptions\NoGitRepositoryException;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class ExecGitDriverTest extends TestCase
@@ -20,16 +21,16 @@ class ExecGitDriverTest extends TestCase
         return new ExecGitDriver(['path' => __DIR__.'/../test-data/'.$folder]);
     }
 
-    /** @test */
-    public function it_throws_an_exception_when_the_path_configuration_is_not_given()
+    #[Test]
+    public function it_throws_an_exception_when_the_path_configuration_is_not_given(): void
     {
         $this->expectException(InvalidArgumentException::class);
 
         new ExecGitDriver([]);
     }
 
-    /** @test */
-    public function it_throws_an_exception_while_fetching_the_current_branch_name_when_the_folder_is_not_found()
+    #[Test]
+    public function it_throws_an_exception_while_fetching_the_current_branch_name_when_the_folder_is_not_found(): void
     {
         $this->expectException(NoGitRepositoryException::class);
 
@@ -38,8 +39,8 @@ class ExecGitDriverTest extends TestCase
         $driver->currentBranch();
     }
 
-    /** @test */
-    public function it_throws_an_exception_while_fetching_the_commit_hash_when_the_folder_is_not_found()
+    #[Test]
+    public function it_throws_an_exception_while_fetching_the_commit_hash_when_the_folder_is_not_found(): void
     {
         $this->expectException(NoGitRepositoryException::class);
 
