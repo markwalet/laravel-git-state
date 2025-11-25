@@ -2,6 +2,9 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.9.2...master)
 
+### Changed
+- Bumped versions
+
 ## [v1.9.2 (2025-01-31)](https://github.com/markwalet/laravel-git-state/compare/v1.9.1...v1.9.2)
 
 ### Added
