@@ -2,6 +2,8 @@
 
 namespace MarkWalet\GitState\Drivers;
 
+use Carbon\Carbon;
+
 interface GitDriver
 {
     /**
@@ -25,4 +27,25 @@ interface GitDriver
      * @return string
      */
     public function latestCommitHash(bool $short = false): string;
+
+    /**
+     * Get the latest commit timestamp.
+     *
+     * @return Carbon
+     */
+    public function latestCommitTimestamp(): Carbon;
+
+    /**
+     * Get the latest commit title.
+     *
+     * @return string
+     */
+    public function latestCommitTitle(): string;
+
+    /**
+     * Get the latest commit description.
+     *
+     * @return string
+     */
+    public function latestCommitDescription(): string;
 }
