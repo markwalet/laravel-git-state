@@ -1,6 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.9.2...master)
+## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.10.0...master)
+
+## [v1.10.0 (2026-03-26)](https://github.com/markwalet/laravel-git-state/compare/v1.9.2...v1.10.0)
 
 ### Added
 - Added support for Laravel 13
