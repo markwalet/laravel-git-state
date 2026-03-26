@@ -2,7 +2,6 @@
 
 namespace MarkWalet\GitState\Tests;
 
-use MarkWalet\GitState\Drivers\FakeGitDriver;
 use MarkWalet\GitState\Drivers\GitDriver;
 use MarkWalet\GitState\Facades\GitState;
 use MarkWalet\GitState\GitStateManager;
@@ -29,12 +28,18 @@ class GitStateServiceProviderTest extends LaravelTestCase
     #[Test]
     public function it_binds_the_correct_driver_to_the_application_based_on_the_configuration(): void
     {
-        $this->app['config']['git-state.default'] = 'test';
-        $this->app['config']['git-state.drivers.test'] = ['driver' => 'fake'];
+        $driverMock = $this->createMock(GitDriver::class);
+        $managerMock = $this->createMock(GitStateManager::class);
+        $managerMock->expects($this->once())
+            ->method('driver')
+            ->with(null)
+            ->willReturn($driverMock);
+
+        $this->app->instance(GitStateManager::class, $managerMock);
 
         $driver = $this->app->make(GitDriver::class);
 
-        $this->assertInstanceOf(FakeGitDriver::class, $driver);
+        $this->assertSame($driverMock, $driver);
     }
 
     #[Test]
