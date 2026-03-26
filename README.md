@@ -15,6 +15,8 @@ You can install this package with composer:
 composer require markwalet/laravel-git-state
 ```
 
+The package supports PHP 8.2+ and Laravel 12+.
+
 Laravel auto-loads service providers for you, so you don't have to register it. If you want to register the service provider manually, add the following line to your `config/app.php` file:
 
 ```php
