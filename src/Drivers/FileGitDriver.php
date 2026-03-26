@@ -103,7 +103,7 @@ class FileGitDriver implements GitDriver
     {
         $lines = preg_split("/\r\n|\n|\r/", $this->latestCommitMessage());
 
-        return trim(implode(PHP_EOL, array_slice($lines, 1)));
+        return trim(implode("\n", array_slice($lines, 1)));
     }
 
     /**

@@ -114,7 +114,7 @@ class FakeGitDriver implements GitDriver
      *
      * @param string $hash
      */
-    public function updateLatestCommit(string $hash)
+    public function updateLatestCommit(string $hash): void
     {
         $this->hash = $hash;
     }

@@ -61,6 +61,7 @@ class ExecGitDriver implements GitDriver
         }
 
         $format = $short ? '%h' : '%H';
+
         return $this->latestCommitLogValue($format);
     }
 
@@ -130,7 +131,7 @@ class ExecGitDriver implements GitDriver
             throw new RuntimeException('Error while fetching the latest commit');
         }
 
-        $value = trim(implode(PHP_EOL, $result));
+        $value = trim(implode("\n", $result));
 
         if ($allowEmpty === false && $value === '') {
             throw new RuntimeException('Error while fetching the latest commit');
