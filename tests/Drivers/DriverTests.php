@@ -2,6 +2,7 @@
 
 namespace MarkWalet\GitState\Tests\Drivers;
 
+use Carbon\Carbon;
 use MarkWalet\GitState\Drivers\GitDriver;
 use MarkWalet\GitState\Exceptions\RuntimeException;
 use PHPUnit\Framework\Attributes\Test;
@@ -64,6 +65,37 @@ trait DriverTests
         $commit = $git->latestCommitHash(false);
 
         $this->assertEquals('202131f0ba24d03d75667ce586be1c1ce3983ce8', $commit);
+    }
+
+    #[Test]
+    public function it_can_get_the_latest_commit_timestamp_of_a_git_repository(): void
+    {
+        $git = $this->driver('with-commit-details');
+
+        $timestamp = $git->latestCommitTimestamp();
+
+        $this->assertInstanceOf(Carbon::class, $timestamp);
+        $this->assertEquals('2020-07-15T14:34:46+00:00', $timestamp->toIso8601String());
+    }
+
+    #[Test]
+    public function it_can_get_the_latest_commit_title_of_a_git_repository(): void
+    {
+        $git = $this->driver('with-commit-details');
+
+        $title = $git->latestCommitTitle();
+
+        $this->assertEquals('Latest test commit', $title);
+    }
+
+    #[Test]
+    public function it_can_get_the_latest_commit_description_of_a_git_repository(): void
+    {
+        $git = $this->driver('with-commit-details');
+
+        $description = $git->latestCommitDescription();
+
+        $this->assertEquals("This is the commit description.\n\nIt spans multiple lines.", $description);
     }
 
     #[Test]

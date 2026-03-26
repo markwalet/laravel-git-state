@@ -36,8 +36,11 @@ class Controller {
     public function index(GitDriver $driver) {
         $branch = $driver->currentBranch();
         $commit = $driver->latestCommitHash();
+        $timestamp = $driver->latestCommitTimestamp(); // Carbon instance
+        $title = $driver->latestCommitTitle();
+        $description = $driver->latestCommitDescription();
         
-        return view('index', compact('branch', 'commit'));
+        return view('index', compact('branch', 'commit', 'timestamp', 'title', 'description'));
     }
 }
 ```

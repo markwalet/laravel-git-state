@@ -2,6 +2,7 @@
 
 namespace MarkWalet\GitState\Drivers;
 
+use Carbon\Carbon;
 use MarkWalet\GitState\Exceptions\NoGitRepositoryException;
 use MarkWalet\GitState\Exceptions\RuntimeException;
 use Webmozart\Assert\Assert;
@@ -60,15 +61,37 @@ class ExecGitDriver implements GitDriver
         }
 
         $format = $short ? '%h' : '%H';
-        $command = $this->command('log', ['--pretty="'.$format.'"', '-n1', 'HEAD']);
+        return $this->latestCommitLogValue($format);
+    }
 
-        exec($command, $result, $code);
+    /**
+     * Get the latest commit timestamp.
+     *
+     * @return Carbon
+     */
+    public function latestCommitTimestamp(): Carbon
+    {
+        return Carbon::createFromTimestampUTC((int) $this->latestCommitLogValue('%ct'));
+    }
 
-        if ($code !== 0 || count($result) !== 1) {
-            throw new RuntimeException('Error while fetching the latest commit');
-        }
+    /**
+     * Get the latest commit title.
+     *
+     * @return string
+     */
+    public function latestCommitTitle(): string
+    {
+        return $this->latestCommitLogValue('%s');
+    }
 
-        return $result[0];
+    /**
+     * Get the latest commit description.
+     *
+     * @return string
+     */
+    public function latestCommitDescription(): string
+    {
+        return $this->latestCommitLogValue('%b', true);
     }
 
     /**
@@ -88,6 +111,32 @@ class ExecGitDriver implements GitDriver
         $nullDevice = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') ? '/nul' : '/dev/null';
 
         return "git $gitOptions $command $commandOptions 2>$nullDevice";
+    }
+
+    /**
+     * Read a formatted value from the latest commit.
+     *
+     * @param string $format
+     * @param bool $allowEmpty
+     * @return string
+     */
+    private function latestCommitLogValue(string $format, bool $allowEmpty = false): string
+    {
+        $command = $this->command('log', ['--pretty="'.$format.'"', '-n1', 'HEAD']);
+
+        exec($command, $result, $code);
+
+        if ($code !== 0) {
+            throw new RuntimeException('Error while fetching the latest commit');
+        }
+
+        $value = trim(implode(PHP_EOL, $result));
+
+        if ($allowEmpty === false && $value === '') {
+            throw new RuntimeException('Error while fetching the latest commit');
+        }
+
+        return $value;
     }
 
     /**

@@ -9,6 +9,9 @@ use MarkWalet\GitState\Exceptions\MissingConfigurationException;
 /**
  * @method string currentBranch()
  * @method string latestCommitHash(bool $short = false)
+ * @method \Carbon\Carbon latestCommitTimestamp()
+ * @method string latestCommitTitle()
+ * @method string latestCommitDescription()
  */
 class GitStateManager
 {

@@ -10,6 +10,9 @@ use MarkWalet\GitState\Drivers\GitDriver;
  *
  * @method static string currentBranch()
  * @method static string latestCommitHash(bool $short = false)
+ * @method static \Carbon\Carbon latestCommitTimestamp()
+ * @method static string latestCommitTitle()
+ * @method static string latestCommitDescription()
  * @see GitDriver
  */
 class GitState extends Facade
