@@ -4,6 +4,10 @@
 
 ### Added
 - Added support for Laravel 13
+- Added support for PHP 8.5 in the test matrix.
+
+### Changed
+- Preferred stable Composer releases by default to avoid PHP 8.5 deprecations from dev dependencies.
 
 ## [v1.9.2 (2025-01-31)](https://github.com/markwalet/laravel-git-state/compare/v1.9.1...v1.9.2)
 
