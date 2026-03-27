@@ -29,7 +29,7 @@ jobs:
         run: composer install --prefer-dist --no-interaction --no-progress
 
       - name: Run PHPStan
-        run: vendor/bin/phpstan analyse src tests --no-progress --memory-limit=1G
+        run: vendor/bin/phpstan analyse --no-progress --memory-limit=1G
 
   pint:
     runs-on: ubuntu-latest
