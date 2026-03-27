@@ -2,7 +2,7 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.11.0...main)
 
-## [v1.11.0 (2026-03-26)](https://github.com/markwalet/laravel-git-state/compare/v1.10.0...v1.11.0)
+## [v1.11.0 (2026-03-27)](https://github.com/markwalet/laravel-git-state/compare/v1.10.0...v1.11.0)
 
 ### Changed
 - Updated the driver factory to reject the removed `fake` driver.
