@@ -2,15 +2,17 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.10.0...master)
 
+### Changed
+- Updated the driver factory to reject the removed `fake` driver.
+- Replaced fake-driver dependent unit tests with PHPUnit mocks.
+- Updated badges in README.
+- Updated CI workflow.
+
 ### Removed
 - Removed support for PHP 8.1.
 - Removed support for Laravel 10.
 - Removed support for Laravel 11.
 - Removed the production `FakeGitDriver`.
-
-### Changed
-- Updated the driver factory to reject the removed `fake` driver.
-- Replaced fake-driver dependent unit tests with PHPUnit mocks.
 
 ## [v1.10.0 (2026-03-26)](https://github.com/markwalet/laravel-git-state/compare/v1.9.2...v1.10.0)
 

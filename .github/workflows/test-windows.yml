@@ -1,4 +1,4 @@
-name: coverage
+name: windows-tests
 
 on:
   push:
@@ -22,13 +22,15 @@ jobs:
         with:
           php-version: 8.4
           extensions: dom, curl, libxml, mbstring, zip, fileinfo, pdo, sqlite, pdo_sqlite, gd
-          coverage: xdebug
+          coverage: none
+
+      - name: Setup problem matchers
+        run: |
+          echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+          echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Install dependencies
         run: composer update --prefer-dist --no-interaction
 
-      - name: Calculate coverage statistics
-        run: vendor/bin/phpunit --coverage-clover 'clover.xml'
-
-      - name: Send coverage statistics
-        uses: codecov/codecov-action@v5
+      - name: Execute tests
+        run: vendor/bin/phpunit

@@ -3,6 +3,5 @@
 /.github export-ignore
 /tests export-ignore
 .gitattributes export-ignore
-.styleci.yml export-ignore
 .gitignore export-ignore
 phpunit.xml export-ignore
