@@ -1,6 +1,16 @@
 # Changelog
 
-## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.11.0...main)
+## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.11.1...main)
+
+## [v1.11.1 (2026-03-27)](https://github.com/markwalet/laravel-git-state/compare/v1.11.0...v1.11.1)
+
+### Added
+- Added PHPStan static analysis.
+- Added syntax linters through Laravel Pint.
+
+### Changed
+- Updated the `webmozart/assert` requirement to allow version 2.
+- Simplified the PHPStan workflow.
 
 ## [v1.11.0 (2026-03-27)](https://github.com/markwalet/laravel-git-state/compare/v1.10.0...v1.11.0)
 
