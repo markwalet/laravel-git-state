@@ -4,6 +4,4 @@ namespace MarkWalet\GitState\Exceptions;
 
 use RuntimeException as BaseRuntimeException;
 
-class RuntimeException extends BaseRuntimeException
-{
-}
+class RuntimeException extends BaseRuntimeException {}

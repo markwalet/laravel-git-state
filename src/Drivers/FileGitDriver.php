@@ -9,13 +9,12 @@ use Webmozart\Assert\Assert;
 
 class FileGitDriver implements GitDriver
 {
-    /** @var string */
     private string $folder;
 
     /**
      * GitDriverInterface constructor.
      *
-     * @param array $config
+     * @param array<string, scalar> $config
      */
     public function __construct(array $config = [])
     {

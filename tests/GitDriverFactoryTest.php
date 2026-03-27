@@ -15,7 +15,7 @@ class GitDriverFactoryTest extends TestCase
     #[Test]
     public function it_throws_an_exception_when_the_fake_driver_is_requested(): void
     {
-        $factory = new GitDriverFactory();
+        $factory = new GitDriverFactory;
 
         $this->expectException(MissingDriverException::class);
 
@@ -27,7 +27,7 @@ class GitDriverFactoryTest extends TestCase
     #[Test]
     public function it_can_create_an_exec_driver(): void
     {
-        $factory = new GitDriverFactory();
+        $factory = new GitDriverFactory;
 
         $driver = $factory->make([
             'driver' => 'exec',
@@ -40,7 +40,7 @@ class GitDriverFactoryTest extends TestCase
     #[Test]
     public function it_can_create_a_file_driver(): void
     {
-        $factory = new GitDriverFactory();
+        $factory = new GitDriverFactory;
 
         $driver = $factory->make([
             'driver' => 'file',
@@ -53,7 +53,7 @@ class GitDriverFactoryTest extends TestCase
     #[Test]
     public function it_throws_an_exception_when_the_driver_is_not_defined(): void
     {
-        $factory = new GitDriverFactory();
+        $factory = new GitDriverFactory;
 
         $this->expectException(InvalidArgumentException::class);
 
@@ -63,7 +63,7 @@ class GitDriverFactoryTest extends TestCase
     #[Test]
     public function it_throws_an_exception_when_the_driver_does_not_exist(): void
     {
-        $factory = new GitDriverFactory();
+        $factory = new GitDriverFactory;
 
         $this->expectException(MissingDriverException::class);
 

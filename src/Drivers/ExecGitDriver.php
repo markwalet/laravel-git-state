@@ -9,15 +9,12 @@ use Webmozart\Assert\Assert;
 
 class ExecGitDriver implements GitDriver
 {
-    /**
-     * @var string
-     */
-    private $folder;
+    private string $folder;
 
     /**
      * GitDriverInterface constructor.
      *
-     * @param array $config
+     * @param array<string, scalar> $config
      */
     public function __construct(array $config = [])
     {
@@ -99,7 +96,7 @@ class ExecGitDriver implements GitDriver
      * Generate a git command with the given options.
      *
      * @param string $command
-     * @param array $options
+     * @param string[] $options
      * @return string
      */
     private function command(string $command, array $options = []): string
@@ -143,7 +140,7 @@ class ExecGitDriver implements GitDriver
     /**
      * Parse a list of options to an option string.
      *
-     * @param array $options
+     * @param array<scalar, scalar> $options
      * @return string
      */
     private function parseOptions(array $options = []): string

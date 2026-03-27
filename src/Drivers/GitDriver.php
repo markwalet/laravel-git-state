@@ -9,7 +9,7 @@ interface GitDriver
     /**
      * GitDriverInterface constructor.
      *
-     * @param array $config
+     * @param array<string, scalar> $config
      */
     public function __construct(array $config = []);
 

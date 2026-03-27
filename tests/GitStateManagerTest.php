@@ -15,7 +15,7 @@ class GitStateManagerTest extends TestCase
     #[Test]
     public function it_can_initialize_a_driver(): void
     {
-        $manager = new GitStateManager(new GitDriverFactory(), [
+        $manager = new GitStateManager(new GitDriverFactory, [
             'drivers' => [
                 'file-instance' => [
                     'driver' => 'file',
@@ -57,7 +57,7 @@ class GitStateManagerTest extends TestCase
     #[Test]
     public function it_throws_an_exception_when_no_drivers_are_specified(): void
     {
-        $manager = new GitStateManager(new GitDriverFactory(), [
+        $manager = new GitStateManager(new GitDriverFactory, [
             'drivers' => null,
         ]);
 
@@ -69,7 +69,7 @@ class GitStateManagerTest extends TestCase
     #[Test]
     public function it_throws_an_exception_when_the_configuration_for_the_given_driver_is_not_found(): void
     {
-        $manager = new GitStateManager(new GitDriverFactory(), [
+        $manager = new GitStateManager(new GitDriverFactory, [
             'default' => 'fake-instance',
             'drivers' => [],
         ]);

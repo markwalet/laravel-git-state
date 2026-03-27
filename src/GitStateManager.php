@@ -2,6 +2,7 @@
 
 namespace MarkWalet\GitState;
 
+use Carbon\Carbon;
 use Illuminate\Support\Arr;
 use MarkWalet\GitState\Drivers\GitDriver;
 use MarkWalet\GitState\Exceptions\MissingConfigurationException;
@@ -9,7 +10,7 @@ use MarkWalet\GitState\Exceptions\MissingConfigurationException;
 /**
  * @method string currentBranch()
  * @method string latestCommitHash(bool $short = false)
- * @method \Carbon\Carbon latestCommitTimestamp()
+ * @method Carbon latestCommitTimestamp()
  * @method string latestCommitTitle()
  * @method string latestCommitDescription()
  */

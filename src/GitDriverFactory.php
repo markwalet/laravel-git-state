@@ -13,7 +13,7 @@ class GitDriverFactory
     /**
      * Create a new codec based on the given configuration.
      *
-     * @param array $config
+     * @param array<string, scalar> $config
      * @return GitDriver
      */
     public function make(array $config): GitDriver
@@ -27,7 +27,7 @@ class GitDriverFactory
      * Create a new codec instance.
      *
      * @param string $driver
-     * @param array $config
+     * @param array<string, scalar> $config
      * @return GitDriver
      * @throws MissingDriverException
      */
