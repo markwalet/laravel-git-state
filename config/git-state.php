@@ -24,7 +24,7 @@ return [
     | The given configuration options should be fine for most projects. But
     | feel free to change them however you like.
     |
-    | Supported drivers are: 'exec', 'file', 'fake'.
+    | Supported drivers are: 'exec', 'file'.
     |
     */
 

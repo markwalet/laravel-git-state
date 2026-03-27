@@ -2,8 +2,8 @@
 
 namespace MarkWalet\GitState\Tests;
 
-use MarkWalet\GitState\Drivers\FakeGitDriver;
 use MarkWalet\GitState\Drivers\FileGitDriver;
+use MarkWalet\GitState\Drivers\GitDriver;
 use MarkWalet\GitState\Exceptions\MissingConfigurationException;
 use MarkWalet\GitState\GitDriverFactory;
 use MarkWalet\GitState\GitStateManager;
@@ -32,18 +32,26 @@ class GitStateManagerTest extends TestCase
     #[Test]
     public function it_uses_the_default_driver_if_no_driver_is_specified(): void
     {
-        $manager = new GitStateManager(new GitDriverFactory(), [
-            'default' => 'fake-instance',
+        $driver = $this->createMock(GitDriver::class);
+
+        $factory = $this->createMock(GitDriverFactory::class);
+        $factory->expects($this->once())
+            ->method('make')
+            ->with(['driver' => 'mock'])
+            ->willReturn($driver);
+
+        $manager = new GitStateManager($factory, [
+            'default' => 'test-instance',
             'drivers' => [
-                'fake-instance' => [
-                    'driver' => 'fake',
+                'test-instance' => [
+                    'driver' => 'mock',
                 ],
             ],
         ]);
 
-        $driver = $manager->driver();
+        $resolvedDriver = $manager->driver();
 
-        $this->assertInstanceOf(FakeGitDriver::class, $driver);
+        $this->assertSame($driver, $resolvedDriver);
     }
 
     #[Test]
@@ -55,7 +63,7 @@ class GitStateManagerTest extends TestCase
 
         $this->expectException(MissingConfigurationException::class);
 
-        $manager->driver('fake');
+        $manager->driver('test');
     }
 
     #[Test]
@@ -73,22 +81,29 @@ class GitStateManagerTest extends TestCase
     #[Test]
     public function it_keeps_track_of_all_active_drivers(): void
     {
-        $manager = new GitStateManager(new GitDriverFactory(), [
-            'default' => 'fake-instance',
+        $firstDriver = $this->createMock(GitDriver::class);
+        $secondDriver = $this->createMock(GitDriver::class);
+
+        $factory = $this->createMock(GitDriverFactory::class);
+        $factory->expects($this->exactly(2))
+            ->method('make')
+            ->willReturnOnConsecutiveCalls($firstDriver, $secondDriver);
+
+        $manager = new GitStateManager($factory, [
+            'default' => 'first-instance',
             'drivers' => [
-                'fake-instance' => [
-                    'driver' => 'fake',
+                'first-instance' => [
+                    'driver' => 'mock',
                 ],
                 'other-instance' => [
-                    'driver' => 'exec',
-                    'path' => __DIR__.'/test-data/on-nested-feature',
+                    'driver' => 'mock',
                 ],
             ],
         ]);
 
         $before = $manager->getActiveDrivers();
 
-        $manager->driver('fake-instance');
+        $manager->driver('first-instance');
         $manager->driver('other-instance');
 
         $after = $manager->getActiveDrivers();
@@ -103,7 +118,7 @@ class GitStateManagerTest extends TestCase
         $factory = $this->createMock(GitDriverFactory::class);
         $factory->expects($this->exactly(2))->method('make');
         $manager = new GitStateManager($factory, [
-            'default' => 'fake-instance',
+            'default' => 'mock',
             'drivers' => [
                 'mock' => [],
                 'test' => [],
