@@ -1,6 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.11.1...main)
+## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.11.2...main)
+
+## [v1.11.2 (2026-03-28)](https://github.com/markwalet/laravel-git-state/compare/v1.11.1...v1.11.2)
 
 ### Added
 - Restored the `FakeGitDriver` for testing and non-production use cases.
