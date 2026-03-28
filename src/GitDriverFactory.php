@@ -3,6 +3,7 @@
 namespace MarkWalet\GitState;
 
 use MarkWalet\GitState\Drivers\ExecGitDriver;
+use MarkWalet\GitState\Drivers\FakeGitDriver;
 use MarkWalet\GitState\Drivers\FileGitDriver;
 use MarkWalet\GitState\Drivers\GitDriver;
 use MarkWalet\GitState\Exceptions\MissingDriverException;
@@ -34,6 +35,8 @@ class GitDriverFactory
     protected function createDriver(string $driver, array $config): GitDriver
     {
         switch ($driver) {
+            case 'fake':
+                return new FakeGitDriver($config);
             case 'exec':
                 return new ExecGitDriver($config);
             case 'file':

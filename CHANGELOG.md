@@ -2,6 +2,12 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-git-state/compare/v1.11.1...main)
 
+### Added
+- Restored the `FakeGitDriver` for testing and non-production use cases.
+
+### Changed
+- Re-enabled fake-driver coverage in the factory, manager, and service provider tests.
+
 ## [v1.11.1 (2026-03-27)](https://github.com/markwalet/laravel-git-state/compare/v1.11.0...v1.11.1)
 
 ### Added
